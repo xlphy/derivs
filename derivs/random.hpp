@@ -8,6 +8,7 @@
 #ifndef random_hpp
 #define random_hpp
 
+/*facilities to generate random numbers*/
 
 double get_one_uniform(double lower=0.0, double upper=1.0);
 double get_one_gaussian_by_BoxMuller();
