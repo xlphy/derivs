@@ -14,6 +14,7 @@
  2) Time to Expiry, the time until option contract settled
  */
 
+#include <utility>
 #include "payoff.hpp"
 
 class VanillaOption {
@@ -21,6 +22,39 @@ public:
     VanillaOption(const Payoff& payoff, double time_to_exp): ttx(time_to_exp){
         // make a copy of payoff
         payoffptr = payoff.clone();
+    }
+    //default constructor
+    VanillaOption():ttx(0.0), payoffptr(nullptr){}
+    
+    // copy
+    VanillaOption(const VanillaOption& rhs){
+        ttx = rhs.ttx;
+        payoffptr = rhs.payoffptr->clone();
+    }
+    VanillaOption& operator=(const VanillaOption& rhs){
+        if (this != &rhs){
+            ttx = rhs.ttx;
+            delete payoffptr;
+            payoffptr = rhs.payoffptr->clone();
+        }
+        return *this;
+    }
+    // move
+    VanillaOption(VanillaOption&& rhs){
+        // do not copy but move
+        ttx = rhs.ttx;
+        payoffptr = rhs.payoffptr;
+        rhs.ttx = 0.0;
+        rhs.payoffptr = nullptr;
+    }
+    VanillaOption& operator=(VanillaOption&& rhs){
+        VanillaOption tmp;
+        std::swap<VanillaOption>(*this, tmp);  // move original this to tmp
+        this->ttx = rhs.ttx;
+        this->payoffptr = rhs.payoffptr;
+        rhs.ttx = 0.0;
+        rhs.payoffptr = nullptr;
+        return *this;
     }
     
     double get_time_to_exp() const {return ttx;}
