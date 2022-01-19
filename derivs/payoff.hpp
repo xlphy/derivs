@@ -8,7 +8,10 @@
 #ifndef payoff_hpp
 #define payoff_hpp
 
-/* Payoff is a function of spot at expiry, may depend on other paramters like strikes, barrier levels */
+#include <utility>
+
+/* Payoff is a function of spot at expiry, may depend on other paramters like strikes, barrier levels
+ */
 
 // base class for Payoff, provide common interface
 class Payoff {
@@ -19,6 +22,44 @@ public:
     virtual Payoff* clone() const=0;
     virtual ~Payoff(){};
 };
+
+
+// Payoff bridge, factor out memory handling (big fives) codes for external classes, so any class using Payoff* can move/copy around its concrete derived Payoff classes. Memory management of entire concrete Payoff classes
+class PayoffBridge {
+public:
+    PayoffBridge(const Payoff& payoff){payoffptr = payoff.clone();}  // implicitly convert from Payoff class
+    PayoffBridge():payoffptr(nullptr){} // default constructor
+    // copy
+    PayoffBridge(const PayoffBridge& rhs){payoffptr = rhs.payoffptr->clone();}
+    PayoffBridge& operator=(const PayoffBridge& rhs){
+        if(this != &rhs){
+            delete payoffptr;
+            payoffptr = rhs.payoffptr->clone();
+        }
+        return *this;
+    }
+    // move
+    PayoffBridge(PayoffBridge&& rhs){
+        payoffptr = rhs.payoffptr;
+        rhs.payoffptr = nullptr;
+    }
+    PayoffBridge& operator=(PayoffBridge&& rhs){
+        PayoffBridge tmp;
+        std::swap<PayoffBridge>(*this, tmp);
+        this->payoffptr = rhs.payoffptr;
+        rhs.payoffptr = nullptr;
+        return *this;
+    }
+    // destructor
+    ~PayoffBridge(){delete payoffptr;};
+    
+    double operator()(double spot) const {return (*payoffptr)(spot);}
+    
+private:
+    Payoff* payoffptr;
+};
+
+
 
 // derived classes, strictly speaking base and derived classes are still different types
 class CallPayoff: public Payoff {

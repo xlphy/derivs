@@ -19,52 +19,17 @@
 
 class VanillaOption {
 public:
-    VanillaOption(const Payoff& payoff, double time_to_exp): ttx(time_to_exp){
-        // make a copy of payoff
-        payoffptr = payoff.clone();
-    }
+    VanillaOption(const PayoffBridge& _payoff, double time_to_exp): pf(_payoff), ttx(time_to_exp){}
     //default constructor
-    VanillaOption():ttx(0.0), payoffptr(nullptr){}
-    
-    // copy
-    VanillaOption(const VanillaOption& rhs){
-        ttx = rhs.ttx;
-        payoffptr = rhs.payoffptr->clone();
-    }
-    VanillaOption& operator=(const VanillaOption& rhs){
-        if (this != &rhs){
-            ttx = rhs.ttx;
-            delete payoffptr;
-            payoffptr = rhs.payoffptr->clone();
-        }
-        return *this;
-    }
-    // move
-    VanillaOption(VanillaOption&& rhs){
-        // do not copy but move
-        ttx = rhs.ttx;
-        payoffptr = rhs.payoffptr;
-        rhs.ttx = 0.0;
-        rhs.payoffptr = nullptr;
-    }
-    VanillaOption& operator=(VanillaOption&& rhs){
-        VanillaOption tmp;
-        std::swap<VanillaOption>(*this, tmp);  // move original this to tmp
-        this->ttx = rhs.ttx;
-        this->payoffptr = rhs.payoffptr;
-        rhs.ttx = 0.0;
-        rhs.payoffptr = nullptr;
-        return *this;
-    }
+    VanillaOption():ttx(0.0), pf(){}
     
     double get_time_to_exp() const {return ttx;}
     void set_time_to_exp(double time_to_exp){ttx = time_to_exp;}
     
-    double payoff(double spot) const {return (*payoffptr)(spot);}
+    double payoff(double spot) const {return pf(spot);}
     
-    ~VanillaOption(){delete payoffptr;}
 private:
-    Payoff* payoffptr;  // payoff at expiry, use a pointer because we want to be generic
+    PayoffBridge pf;  // use PayoffBridge, we can rely on default big-fives to handle copy/move, used it just like built-in type
     double ttx; // time to expiry
 };
 
