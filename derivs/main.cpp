@@ -7,40 +7,12 @@
 
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
 
-double get_one_uniform(double lower=0.0, double upper=1.0){
-    // return one random variable from uniform dist. [lower, upper]
-    return lower + (upper - lower) * std::rand() / static_cast<double>(RAND_MAX);
-}
+#include "random.hpp"
+#include "payoff.hpp"
+#include "option.hpp"
 
-double get_one_gaussian_by_BoxMuller(){
-    // generate a random number from standard normal dist.
-    // Box-Muller transformation: https://en.wikipedia.org/wiki/Box–Muller_transform
-    // exp(-r^2/2) ~ U1; phi/2pi ~ U2; U ~ [0, 1]
-    // use polar form
-    // get one uniform u1 = r2 = u*u + v*v; cos(2pi * U2) = u / sqrt(r2)
-    double r2, u, v;
-    do{
-        u = get_one_uniform(-1, 1);
-        v = get_one_uniform(-1, 1);
-        r2 = u*u + v*v;
-    }while(r2 >= 1.0);
-    return u * std::sqrt(-2 * std::log(r2) / r2);
-}
-
-double get_one_gaussian_by_sum(){
-    // generate a random number by a sum, invoking CLT
-    // the sum of 12 uniform random variables, mean = 6, var = 12 * 1 / 12
-    double res = 0.0;
-    for(int i=0; i<12; ++i)
-        res += get_one_uniform();
-    return res - 6.0;
-}
-
-
-double simpleMC(double time_to_exp,
-                double strike,
+double simpleMC(const VanillaOption& opt,
                 double spot,
                 double vol,
                 double r,
@@ -48,18 +20,17 @@ double simpleMC(double time_to_exp,
     // MC price a call option
     // the process: dS = r * S * dt + vol * S * dW
     // terminal S(T) = S * exp( (r - vol*vol/2) * t + vol * sqrt(t) * random_normal(0,1) )
-    double var = vol * vol * time_to_exp;
+    double var = vol * vol * opt.get_time_to_exp();
     double sqrvar = std::sqrt(var);
-    double s0 = spot * std::exp(r * time_to_exp - var / 2);
+    double s0 = spot * std::exp(r * opt.get_time_to_exp() - var / 2);
     double res = 0;
     for(unsigned long i = 0; i < num_paths; ++i){
         double gau = get_one_gaussian_by_BoxMuller();
         double s = s0 * std::exp(sqrvar * gau);
-        double payoff = s > strike? s - strike: 0;
-        res += payoff;
+        res += opt.payoff(s);
     }
     res /= num_paths;
-    res *= std::exp(-r * time_to_exp);
+    res *= std::exp(-r * opt.get_time_to_exp());
     
     return res;
 }
@@ -68,11 +39,24 @@ double simpleMC(double time_to_exp,
 int main(int argc, const char * argv[]) {
     // run simpleMC
     double ttx, strike, spot, vol, r;
+    char opt_type;
     unsigned long num_paths;
     std::cout << "\nEnter time to expiry\n";
     std::cin >> ttx;
     std::cout << "\nEnter strike\n";
     std::cin >> strike;
+    std::cout << "\nEnter the type of option: call(c) or put(p)";
+    std::cin >> opt_type;
+    Payoff* payoffptr;
+    if(opt_type == 'c')
+        payoffptr = new CallPayoff(strike);
+    else if(opt_type == 'p')
+        payoffptr = new PutPayoff(strike);
+    else
+        payoffptr = nullptr;
+    
+    VanillaOption opt(*payoffptr, ttx);
+    
     std::cout << "\nEnter spot\n";
     std::cin >> spot;
     std::cout << "\nEnter vol\n";
@@ -81,9 +65,8 @@ int main(int argc, const char * argv[]) {
     std::cin >> r;
     std::cout << "\nthe number of paths\n";
     std::cin >> num_paths;
-    
-    double res = simpleMC(ttx,
-                          strike,
+
+    double res = simpleMC(opt,
                           spot,
                           vol,
                           r,
@@ -92,7 +75,9 @@ int main(int argc, const char * argv[]) {
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit
-
+    
+    delete payoffptr;
+    
     return 0;
 }
 
