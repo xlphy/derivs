@@ -82,13 +82,13 @@ private:
 class ParametersConstant: public ParametersInner{
 public:
     ParametersConstant(double val): c(val), c2(val*val){}
-    virtual ParametersInner* clone() const override {
+    ParametersInner* clone() const override {
         return new ParametersConstant(*this);
     }
-    virtual double integrate(double from_time, double to_time) const override {
+    double integrate(double from_time, double to_time) const override {
         return c * (to_time - from_time);
     }
-    virtual double integrate_square(double from_time, double to_time) const override {
+    double integrate_square(double from_time, double to_time) const override {
         return c2 * (to_time - from_time);
     }
     

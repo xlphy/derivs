@@ -12,44 +12,49 @@
 #include "payoff.hpp"
 #include "option.hpp"
 #include "parameters.hpp"
+#include "mcstats.hpp"
 
-double simpleMC(const VanillaOption& opt,
-                double spot,
-                const Parameters& vol,
-                const Parameters& r,
-                unsigned long num_paths){
-    // MC price a call option
+
+// a generic function that depends on abstract base classes
+// extensibility or flexibility is achieved by supplying different concrete derived classes to the function,
+// not by changing the script of the function
+void simpleMC(const VanillaOption& opt,
+              double spot,
+              const Parameters& vol,
+              const Parameters& r,
+              unsigned long num_paths,
+              StatsMC& gatherer
+              ){
+    // MC pricer
     // the process: dS = r * S * dt + vol * S * dW
     // terminal S(T) = S * exp( (r - vol*vol/2) * t + vol * sqrt(t) * random_normal(0,1) )
-    double var = vol.integrate_square(0.0, opt.get_time_to_exp());
+    double ttx = opt.get_time_to_exp();
+    double var = vol.integrate_square(0.0, ttx);
     double sqrvar = std::sqrt(var);
-    double s0 = spot * std::exp(r.integrate(0.0, opt.get_time_to_exp()) - var / 2);
-    double res = 0;
+    double s0 = spot * std::exp(r.integrate(0.0, ttx) - var / 2);
+    double discounting = std::exp(-r.integrate(0.0, ttx));
     for(unsigned long i = 0; i < num_paths; ++i){
         double gau = get_one_gaussian_by_BoxMuller();
         double s = s0 * std::exp(sqrvar * gau);
-        res += opt.payoff(s);
+        gatherer.dump_one_result(discounting * opt.payoff(s));
     }
-    res /= num_paths;
-    res *= std::exp(-r.integrate(0.0, opt.get_time_to_exp()));
-    
-    return res;
 }
 
 
 int main(int argc, const char * argv[]) {
     // run simpleMC
+    // read raw input
     double ttx, strike, spot, vol, r;
     unsigned long num_paths;
     std::cout << "\nEnter time to expiry\n";
     std::cin >> ttx;
     std::cout << "\nEnter strike\n";
     std::cin >> strike;
-    // output both call and put prices
+    // payoff and option objects
     CallPayoff call_payoff{strike};
     PutPayoff put_payoff{strike};
     VanillaOption call_opt(call_payoff, ttx), put_opt(put_payoff, ttx);
-    
+    // read raw input
     std::cout << "\nEnter spot\n";
     std::cin >> spot;
     std::cout << "\nEnter vol\n";
@@ -58,25 +63,33 @@ int main(int argc, const char * argv[]) {
     std::cin >> r;
     std::cout << "\nthe number of paths\n";
     std::cin >> num_paths;
-
+    // parameters object
     ParametersConstant param_vol(vol), param_r(r);
+    // gather for collecting statistics and results
+    StatsMean gatherer_call, gatherer_put;
+    // run MC simulation
+    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call);
+    simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put);
+    // output results
+    std::vector<std::vector<double>> res = gatherer_call.get_results_sofar();
+    std::cout << "Call results:\n";
+    for(unsigned long i = 0; i < res.size(); ++i){
+        for(unsigned long j = 0; j < res[i].size(); ++j)
+            std::cout << res[i][j] << " ";
+        std::cout << "\n";
+    }
+    double call_price = res[0][0];
+    res = gatherer_put.get_results_sofar();
+    std::cout << "Put results:\n";
+    for(unsigned long i = 0; i < res.size(); ++i){
+        for(unsigned long j = 0; j < res[i].size(); ++j)
+            std::cout << res[i][j] << " ";
+        std::cout << "\n";
+    }
+    double put_price = res[0][0];
     
-    double call_res = simpleMC(call_opt,
-                               spot,
-                               param_vol,
-                               param_r,
-                               num_paths
-                               );
-    double put_res = simpleMC(put_opt,
-                              spot,
-                              param_vol,
-                              param_r,
-                              num_paths
-                              );
-    std::cout << "the price of call option is: " << call_res << "\n";
-    std::cout << "the price of put option is:  " << put_res << "\n";
-    std::cout << "C - P = " << call_res - put_res <<"\n";
-    std::cout << "S - K*exp(-rt)" << spot - strike * std::exp(-param_r.integrate(0, call_opt.get_time_to_exp()));
+    std::cout << "C - P = " << call_price- put_price <<"\n";
+    std::cout << "S - K*exp(-rt) = " << spot - strike * std::exp(-param_r.integrate(0, call_opt.get_time_to_exp())) << "\n";
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit

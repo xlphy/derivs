@@ -11,6 +11,7 @@
 		2207D4FE27951C6600AD3A75 /* payoff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D4FC27951C6600AD3A75 /* payoff.cpp */; };
 		2207D5012795299300AD3A75 /* option.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D4FF2795299300AD3A75 /* option.cpp */; };
 		2207D5042798C9A500AD3A75 /* parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D5022798C9A500AD3A75 /* parameters.cpp */; };
+		2207D5072799235B00AD3A75 /* mcstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D5052799235B00AD3A75 /* mcstats.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 		2207D5002795299300AD3A75 /* option.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = option.hpp; sourceTree = "<group>"; };
 		2207D5022798C9A500AD3A75 /* parameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parameters.cpp; sourceTree = "<group>"; };
 		2207D5032798C9A500AD3A75 /* parameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = parameters.hpp; sourceTree = "<group>"; };
+		2207D5052799235B00AD3A75 /* mcstats.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mcstats.cpp; sourceTree = "<group>"; };
+		2207D5062799235B00AD3A75 /* mcstats.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mcstats.hpp; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 				2207D5002795299300AD3A75 /* option.hpp */,
 				2207D5022798C9A500AD3A75 /* parameters.cpp */,
 				2207D5032798C9A500AD3A75 /* parameters.hpp */,
+				2207D5052799235B00AD3A75 /* mcstats.cpp */,
+				2207D5062799235B00AD3A75 /* mcstats.hpp */,
 			);
 			path = derivs;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				2207D5042798C9A500AD3A75 /* parameters.cpp in Sources */,
 				2207D5012795299300AD3A75 /* option.cpp in Sources */,
 				2207D4FB27951AFA00AD3A75 /* random.cpp in Sources */,
+				2207D5072799235B00AD3A75 /* mcstats.cpp in Sources */,
 				2207D4FE27951C6600AD3A75 /* payoff.cpp in Sources */,
 				2268C567278DC7EE00370682 /* main.cpp in Sources */,
 			);
