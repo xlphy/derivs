@@ -13,7 +13,7 @@
 #include "option.hpp"
 #include "parameters.hpp"
 #include "mcstats.hpp"
-
+#include "wrapper.hpp"
 
 // a generic function that depends on abstract base classes
 // extensibility or flexibility is achieved by supplying different concrete derived classes to the function,
@@ -67,6 +67,9 @@ int main(int argc, const char * argv[]) {
     ParametersConstant param_vol(vol), param_r(r);
     // gather for collecting statistics and results
     StatsMean gatherer_call, gatherer_put;
+    
+    Wrapper<StatsMC> gatherer2;
+    
     // run MC simulation
     simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call);
     simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put);
