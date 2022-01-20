@@ -11,18 +11,19 @@
 #include "random.hpp"
 #include "payoff.hpp"
 #include "option.hpp"
+#include "parameters.hpp"
 
 double simpleMC(const VanillaOption& opt,
                 double spot,
-                double vol,
-                double r,
+                const Parameters& vol,
+                const Parameters& r,
                 unsigned long num_paths){
     // MC price a call option
     // the process: dS = r * S * dt + vol * S * dW
     // terminal S(T) = S * exp( (r - vol*vol/2) * t + vol * sqrt(t) * random_normal(0,1) )
-    double var = vol * vol * opt.get_time_to_exp();
+    double var = vol.integrate_square(0.0, opt.get_time_to_exp());
     double sqrvar = std::sqrt(var);
-    double s0 = spot * std::exp(r * opt.get_time_to_exp() - var / 2);
+    double s0 = spot * std::exp(r.integrate(0.0, opt.get_time_to_exp()) - var / 2);
     double res = 0;
     for(unsigned long i = 0; i < num_paths; ++i){
         double gau = get_one_gaussian_by_BoxMuller();
@@ -30,7 +31,7 @@ double simpleMC(const VanillaOption& opt,
         res += opt.payoff(s);
     }
     res /= num_paths;
-    res *= std::exp(-r * opt.get_time_to_exp());
+    res *= std::exp(-r.integrate(0.0, opt.get_time_to_exp()));
     
     return res;
 }
@@ -39,23 +40,15 @@ double simpleMC(const VanillaOption& opt,
 int main(int argc, const char * argv[]) {
     // run simpleMC
     double ttx, strike, spot, vol, r;
-    char opt_type;
     unsigned long num_paths;
     std::cout << "\nEnter time to expiry\n";
     std::cin >> ttx;
     std::cout << "\nEnter strike\n";
     std::cin >> strike;
-    std::cout << "\nEnter the type of option: call(c) or put(p)";
-    std::cin >> opt_type;
-    Payoff* payoffptr;
-    if(opt_type == 'c')
-        payoffptr = new CallPayoff(strike);
-    else if(opt_type == 'p')
-        payoffptr = new PutPayoff(strike);
-    else
-        payoffptr = nullptr;
-    
-    VanillaOption opt(*payoffptr, ttx);
+    // output both call and put prices
+    CallPayoff call_payoff{strike};
+    PutPayoff put_payoff{strike};
+    VanillaOption call_opt(call_payoff, ttx), put_opt(put_payoff, ttx);
     
     std::cout << "\nEnter spot\n";
     std::cin >> spot;
@@ -66,17 +59,28 @@ int main(int argc, const char * argv[]) {
     std::cout << "\nthe number of paths\n";
     std::cin >> num_paths;
 
-    double res = simpleMC(opt,
-                          spot,
-                          vol,
-                          r,
-                          num_paths);
-    std::cout << "the price is " << res << "\n";
+    ParametersConstant param_vol(vol), param_r(r);
+    
+    double call_res = simpleMC(call_opt,
+                               spot,
+                               param_vol,
+                               param_r,
+                               num_paths
+                               );
+    double put_res = simpleMC(put_opt,
+                              spot,
+                              param_vol,
+                              param_r,
+                              num_paths
+                              );
+    std::cout << "the price of call option is: " << call_res << "\n";
+    std::cout << "the price of put option is:  " << put_res << "\n";
+    std::cout << "C - P = " << call_res - put_res <<"\n";
+    std::cout << "S - K*exp(-rt)" << spot - strike * std::exp(-param_r.integrate(0, call_opt.get_time_to_exp()));
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit
     
-    delete payoffptr;
     
     return 0;
 }
