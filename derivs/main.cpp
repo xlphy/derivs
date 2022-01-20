@@ -14,6 +14,7 @@
 #include "parameters.hpp"
 #include "mcstats.hpp"
 #include "wrapper.hpp"
+#include "convergence_tab.hpp"
 
 // a generic function that depends on abstract base classes
 // extensibility or flexibility is achieved by supplying different concrete derived classes to the function,
@@ -40,6 +41,15 @@ void simpleMC(const VanillaOption& opt,
     }
 }
 
+// output std::vector<std::vector<double>>
+std::ostream& operator<<(std::ostream& out, const std::vector<std::vector<double>>& res){
+    for(unsigned long i = 0; i < res.size(); ++i){
+        for(unsigned long j = 0; j < res[i].size(); ++j)
+            out << res[i][j] << ", ";
+        out << "\n";
+    }
+    return out;
+}
 
 int main(int argc, const char * argv[]) {
     // run simpleMC
@@ -67,32 +77,29 @@ int main(int argc, const char * argv[]) {
     ParametersConstant param_vol(vol), param_r(r);
     // gather for collecting statistics and results
     StatsMean gatherer_call, gatherer_put;
+    // check convergence
+    ConvergenceTable gatherer2(gatherer_call); // decorator pattern, same input but slightly changed behaviors and outputs
     
-    Wrapper<StatsMC> gatherer2;
     
     // run MC simulation
     simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call);
     simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put);
+    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer2);
     // output results
     std::vector<std::vector<double>> res = gatherer_call.get_results_sofar();
     std::cout << "Call results:\n";
-    for(unsigned long i = 0; i < res.size(); ++i){
-        for(unsigned long j = 0; j < res[i].size(); ++j)
-            std::cout << res[i][j] << " ";
-        std::cout << "\n";
-    }
+    std::cout << res;
     double call_price = res[0][0];
     res = gatherer_put.get_results_sofar();
     std::cout << "Put results:\n";
-    for(unsigned long i = 0; i < res.size(); ++i){
-        for(unsigned long j = 0; j < res[i].size(); ++j)
-            std::cout << res[i][j] << " ";
-        std::cout << "\n";
-    }
+    std::cout << res;
     double put_price = res[0][0];
     
     std::cout << "C - P = " << call_price- put_price <<"\n";
     std::cout << "S - K*exp(-rt) = " << spot - strike * std::exp(-param_r.integrate(0, call_opt.get_time_to_exp())) << "\n";
+    std::cout << "Convergence Table: \n";
+    res = gatherer2.get_results_sofar();
+    std::cout << res;
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit

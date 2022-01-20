@@ -18,7 +18,7 @@ template<typename T>
 class Wrapper{
 public:
     Wrapper():ptr(nullptr){}
-    Wrapper(const T& inner){ptr = inner.clone();}
+    Wrapper(const T& inner){ptr = inner.clone();} // convert T to wrapper, bridge func(wrapper) and func(T)
     //copy
     Wrapper(const Wrapper<T>& rhs){
         if(rhs.ptr != nullptr)
