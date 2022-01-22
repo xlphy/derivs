@@ -25,7 +25,8 @@ void simpleMC(const VanillaOption& opt,
               const Parameters& r,
               unsigned long num_paths,
               StatsMC& gatherer
-              ){
+              )
+{
     // MC pricer
     // the process: dS = r * S * dt + vol * S * dW
     // terminal S(T) = S * exp( (r - vol*vol/2) * t + vol * sqrt(t) * random_normal(0,1) )
@@ -100,6 +101,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "Convergence Table: \n";
     res = gatherer2.get_results_sofar();
     std::cout << res;
+    
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit
