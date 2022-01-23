@@ -8,6 +8,19 @@
 #include "random.hpp"
 #include <cstdlib>  // rand
 #include <cmath>
+#include "normals.hpp"
+
+
+void RandomBase::get_gaussians(MJArray &variates){
+    get_uniforms(variates);
+    for(unsigned long i=0; i<dim; ++i){
+        double x = variates[i];
+        variates[i] = inv_cum_norm(x);
+    }
+}
+
+
+
 
 double get_one_uniform(double lower, double upper){
     // return one random variable from uniform dist. [lower, upper]

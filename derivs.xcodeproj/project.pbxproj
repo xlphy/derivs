@@ -14,6 +14,7 @@
 		2207D5072799235B00AD3A75 /* mcstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D5052799235B00AD3A75 /* mcstats.cpp */; };
 		2207D50E279A032D00AD3A75 /* convergence_tab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D50C279A032D00AD3A75 /* convergence_tab.cpp */; };
 		2207D514279C466100AD3A75 /* mjarray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D512279C466100AD3A75 /* mjarray.cpp */; };
+		2207D517279C795B00AD3A75 /* normals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D515279C795B00AD3A75 /* normals.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,8 @@
 		2207D50D279A032D00AD3A75 /* convergence_tab.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = convergence_tab.hpp; sourceTree = "<group>"; };
 		2207D512279C466100AD3A75 /* mjarray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mjarray.cpp; sourceTree = "<group>"; };
 		2207D513279C466100AD3A75 /* mjarray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mjarray.hpp; sourceTree = "<group>"; };
+		2207D515279C795B00AD3A75 /* normals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = normals.cpp; sourceTree = "<group>"; };
+		2207D516279C795B00AD3A75 /* normals.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = normals.hpp; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				2207D50D279A032D00AD3A75 /* convergence_tab.hpp */,
 				2207D512279C466100AD3A75 /* mjarray.cpp */,
 				2207D513279C466100AD3A75 /* mjarray.hpp */,
+				2207D515279C795B00AD3A75 /* normals.cpp */,
+				2207D516279C795B00AD3A75 /* normals.hpp */,
 			);
 			path = derivs;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				2207D4FE27951C6600AD3A75 /* payoff.cpp in Sources */,
 				2207D50E279A032D00AD3A75 /* convergence_tab.cpp in Sources */,
 				2268C567278DC7EE00370682 /* main.cpp in Sources */,
+				2207D517279C795B00AD3A75 /* normals.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
