@@ -24,7 +24,8 @@ void simpleMC(const VanillaOption& opt,
               const Parameters& vol,
               const Parameters& r,
               unsigned long num_paths,
-              StatsMC& gatherer
+              StatsMC& gatherer,
+              RandomBase& generator
               )
 {
     // MC pricer
@@ -35,9 +36,12 @@ void simpleMC(const VanillaOption& opt,
     double sqrvar = std::sqrt(var);
     double s0 = spot * std::exp(r.integrate(0.0, ttx) - var / 2);
     double discounting = std::exp(-r.integrate(0.0, ttx));
+    generator.reset_dim(1); // every function call has the same init_seed with the supplied generator
+    MJArray variate(1);
     for(unsigned long i = 0; i < num_paths; ++i){
-        double gau = get_one_gaussian_by_BoxMuller();
-        double s = s0 * std::exp(sqrvar * gau);
+        //double gau = get_one_gaussian_by_BoxMuller();
+        generator.get_gaussians(variate);
+        double s = s0 * std::exp(sqrvar * variate[0]);
         gatherer.dump_one_result(discounting * opt.payoff(s));
     }
 }
@@ -80,12 +84,13 @@ int main(int argc, const char * argv[]) {
     StatsMean gatherer_call, gatherer_put;
     // check convergence
     ConvergenceTable gatherer2(gatherer_call); // decorator pattern, same input but slightly changed behaviors and outputs
-    
+    RandomParkMiller generator(1, 1);
     
     // run MC simulation
-    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call);
-    simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put);
-    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer2);
+    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call, generator);
+    simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put, generator);
+    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer2, generator);
+    
     // output results
     std::vector<std::vector<double>> res = gatherer_call.get_results_sofar();
     std::cout << "Call results:\n";
@@ -105,6 +110,7 @@ int main(int argc, const char * argv[]) {
     
     double tmp;
     std::cin >> tmp; // wait for an input to exit
+    
     
     
     return 0;

@@ -19,6 +19,32 @@ void RandomBase::get_gaussians(MJArray &variates){
     }
 }
 
+constexpr long PM_A = 16807;
+constexpr long PM_M = 2147483647;
+constexpr long PM_Q = 127773;
+constexpr long PM_R = 2836;
+
+ParkMiller::ParkMiller(long _seed) : seed(_seed){
+    if(seed==0) seed=1;
+}
+
+void ParkMiller::set_seed(long _seed){
+    seed = _seed;
+    if(seed==0) seed=1;
+}
+
+unsigned long ParkMiller::Max(){return PM_M - 1;}
+unsigned long ParkMiller::Min(){return 1;}
+
+long ParkMiller::get_one_integer(){
+    long k;
+    k = seed / PM_Q;
+    
+    seed = PM_A * (seed - k * PM_Q) - PM_R * k;
+    if(seed<0) seed += PM_M;
+    
+    return seed;
+}
 
 
 
