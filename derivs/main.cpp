@@ -15,6 +15,7 @@
 #include "mcstats.hpp"
 #include "wrapper.hpp"
 #include "convergence_tab.hpp"
+#include "anti_thetic.hpp"
 
 // a generic function that depends on abstract base classes
 // extensibility or flexibility is achieved by supplying different concrete derived classes to the function,
@@ -84,12 +85,14 @@ int main(int argc, const char * argv[]) {
     StatsMean gatherer_call, gatherer_put;
     // check convergence
     ConvergenceTable gatherer2(gatherer_call); // decorator pattern, same input but slightly changed behaviors and outputs
-    RandomParkMiller generator(1, 1);
-    
+    RandomParkMiller generator(1, 1);  // set dim and ini_seed, same init_seed->same result
+    AntiThetic generator2 = AntiThetic(generator); // using anti-thetic sampling
+    ConvergenceTable gatherer3(gatherer_call);
     // run MC simulation
     simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer_call, generator);
     simpleMC(put_opt, spot, param_vol, param_r, num_paths, gatherer_put, generator);
     simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer2, generator);
+    simpleMC(call_opt, spot, param_vol, param_r, num_paths, gatherer3, generator2);
     
     // output results
     std::vector<std::vector<double>> res = gatherer_call.get_results_sofar();
@@ -105,6 +108,9 @@ int main(int argc, const char * argv[]) {
     std::cout << "S - K*exp(-rt) = " << spot - strike * std::exp(-param_r.integrate(0, call_opt.get_time_to_exp())) << "\n";
     std::cout << "Convergence Table: \n";
     res = gatherer2.get_results_sofar();
+    std::cout << res;
+    std::cout << "Convergence Table (use anti-thetic sampling): \n";
+    res = gatherer3.get_results_sofar();
     std::cout << res;
     
     

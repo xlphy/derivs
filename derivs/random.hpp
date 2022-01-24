@@ -57,7 +57,7 @@ private:
 // adapt ParkMiller to RandomBase
 class RandomParkMiller: public RandomBase{
 public:
-    RandomParkMiller(unsigned long _dim, unsigned long _seed)
+    RandomParkMiller(unsigned long _dim, unsigned long _seed=1)
     : RandomBase(_dim), inner_generator(_seed), init_seed(_seed){
         // convertion factor from random integers in [min, max] to (0, 1), open interval
         reciprocal = 1 / (1.0 + inner_generator.Max());
