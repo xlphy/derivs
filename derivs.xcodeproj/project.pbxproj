@@ -16,6 +16,9 @@
 		2207D514279C466100AD3A75 /* mjarray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D512279C466100AD3A75 /* mjarray.cpp */; };
 		2207D517279C795B00AD3A75 /* normals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D515279C795B00AD3A75 /* normals.cpp */; };
 		2207D51A279F011700AD3A75 /* anti_thetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D518279F011700AD3A75 /* anti_thetic.cpp */; };
+		2207D52727A4B49000AD3A75 /* path_dependent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D52527A4B49000AD3A75 /* path_dependent.cpp */; };
+		2207D52A27A4DF0C00AD3A75 /* exotic_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D52827A4DF0C00AD3A75 /* exotic_engine.cpp */; };
+		2207D52D27A4FE6300AD3A75 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D52B27A4FE6300AD3A75 /* test.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,12 @@
 		2207D516279C795B00AD3A75 /* normals.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = normals.hpp; sourceTree = "<group>"; };
 		2207D518279F011700AD3A75 /* anti_thetic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = anti_thetic.cpp; sourceTree = "<group>"; };
 		2207D519279F011700AD3A75 /* anti_thetic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = anti_thetic.hpp; sourceTree = "<group>"; };
+		2207D52527A4B49000AD3A75 /* path_dependent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = path_dependent.cpp; sourceTree = "<group>"; };
+		2207D52627A4B49000AD3A75 /* path_dependent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = path_dependent.hpp; sourceTree = "<group>"; };
+		2207D52827A4DF0C00AD3A75 /* exotic_engine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = exotic_engine.cpp; sourceTree = "<group>"; };
+		2207D52927A4DF0C00AD3A75 /* exotic_engine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = exotic_engine.hpp; sourceTree = "<group>"; };
+		2207D52B27A4FE6300AD3A75 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		2207D52C27A4FE6300AD3A75 /* test.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test.hpp; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -107,6 +116,12 @@
 				2207D516279C795B00AD3A75 /* normals.hpp */,
 				2207D518279F011700AD3A75 /* anti_thetic.cpp */,
 				2207D519279F011700AD3A75 /* anti_thetic.hpp */,
+				2207D52527A4B49000AD3A75 /* path_dependent.cpp */,
+				2207D52627A4B49000AD3A75 /* path_dependent.hpp */,
+				2207D52827A4DF0C00AD3A75 /* exotic_engine.cpp */,
+				2207D52927A4DF0C00AD3A75 /* exotic_engine.hpp */,
+				2207D52B27A4FE6300AD3A75 /* test.cpp */,
+				2207D52C27A4FE6300AD3A75 /* test.hpp */,
 			);
 			path = derivs;
 			sourceTree = "<group>";
@@ -171,10 +186,13 @@
 				2207D51A279F011700AD3A75 /* anti_thetic.cpp in Sources */,
 				2207D5042798C9A500AD3A75 /* parameters.cpp in Sources */,
 				2207D5012795299300AD3A75 /* option.cpp in Sources */,
+				2207D52A27A4DF0C00AD3A75 /* exotic_engine.cpp in Sources */,
 				2207D514279C466100AD3A75 /* mjarray.cpp in Sources */,
 				2207D4FB27951AFA00AD3A75 /* random.cpp in Sources */,
 				2207D5072799235B00AD3A75 /* mcstats.cpp in Sources */,
+				2207D52727A4B49000AD3A75 /* path_dependent.cpp in Sources */,
 				2207D4FE27951C6600AD3A75 /* payoff.cpp in Sources */,
+				2207D52D27A4FE6300AD3A75 /* test.cpp in Sources */,
 				2207D50E279A032D00AD3A75 /* convergence_tab.cpp in Sources */,
 				2268C567278DC7EE00370682 /* main.cpp in Sources */,
 				2207D517279C795B00AD3A75 /* normals.cpp in Sources */,
