@@ -74,6 +74,12 @@ std::ostream& operator<<(std::ostream& out, const std::vector<std::vector<double
     return out;
 }
 
+// read inputs
+template<typename T>
+void read_input(const std::string& prompt, T& variable){
+    std::cout << prompt;
+    std::cin >> variable;
+}
 
 void test_simpleMC(){
     // run simpleMC
@@ -137,14 +143,15 @@ void test_exoticEngine(){
     unsigned long num_paths, num_dates;
     
     std::cout <<"pricing an Asian call option\n";
-    std::cout << "Enter time to expiry\n"; std::cin >> ttx;
-    std::cout << "Strike\n"; std::cin >> strike;
-    std::cout << "Spot\n"; std::cin >> spot;
-    std::cout << "vol\n"; std::cin >> vol;
-    std::cout << "r\n"; std::cin >> r;
-    std::cout << "dividend\n"; std::cin >> div;
-    std::cout << "number of dates\n"; std::cin >> num_dates;
-    std::cout << "number of paths\n"; std::cin >> num_paths;
+    read_input<double>("Enter time to expiry: ", ttx);
+    read_input<double>("Strike: ", strike);
+    read_input<double>("Spot: ", spot);
+    read_input<double>("vol: ", vol);
+    read_input<double>("r: ", r);
+    read_input<double>("dividend: ", div);
+    read_input<unsigned long>("number of dates: ", num_dates);
+    read_input<unsigned long>("number of paths: ", num_paths);
+    
     
     CallPayoff payoff(strike);
     MJArray times(num_dates);
