@@ -11,6 +11,7 @@
 
 void test_simpleMC();
 void test_exoticEngine();
+void test_tree();
 
 
 #endif /* test_hpp */

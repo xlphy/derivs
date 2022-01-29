@@ -97,4 +97,20 @@ private:
 };
 
 
+class ForwardPayoff: public Payoff {
+public:
+    ForwardPayoff(double strike):k(strike){}
+    double operator()(double spot) const override{
+        return spot - k;
+    }
+    Payoff* clone() const override{
+        return new ForwardPayoff(*this);
+    }
+    
+    double get_strike() const {return k;}
+    
+private:
+    double k;
+};
+
 #endif /* payoff_hpp */

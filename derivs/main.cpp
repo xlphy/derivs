@@ -10,7 +10,8 @@
 int main(int argc, const char * argv[]) {
     
     //test_simpleMC();
-    test_exoticEngine();
+    //test_exoticEngine();
+    test_tree();
     
     double tmp;
     std::cout << "enter a number to exit:";

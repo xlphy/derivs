@@ -20,7 +20,9 @@
 #include "anti_thetic.hpp"
 #include "path_dependent.hpp"
 #include "exotic_engine.hpp"
-
+#include "tree_product.hpp"
+#include "tree.hpp"
+#include "BlackScholes.hpp"
 
 /* Identify opportunities to refactor/improve codes
  1. be able to change to different types of payoff, call, put, digital, double digital, etc. --> Payoff class
@@ -175,6 +177,54 @@ void test_exoticEngine(){
     return;
 }
 
+void test_tree(){
+    double ttx, strike, spot, vol, r, div;
+    unsigned long steps;
+    
+    std::cout <<"pricing by tree\n";
+    read_input<double>("Enter time to expiry: ", ttx);
+    read_input<double>("Strike: ", strike);
+    read_input<double>("Spot: ", spot);
+    read_input<double>("vol: ", vol);
+    read_input<double>("r: ", r);
+    read_input<double>("dividend: ", div);
+    read_input<unsigned long>("number of steps: ", steps);
+    
+    CallPayoff payoff(strike);
+    ParametersConstant r_param(r);
+    ParametersConstant div_param(div);
+    
+    TreeEuropean euro_opt(ttx, payoff);
+    TreeAmerican am_opt(ttx, payoff);
+    
+    BinomialTree tree(spot, r_param, div_param, vol, steps, ttx);
+    double euro_price = tree.get_price(euro_opt);
+    double am_price = tree.get_price(am_opt);
+    std::cout << "euro/am call tree price: " << euro_price << ", " << am_price << "\n";
+    // compare with Black-Scholes
+    double bs_price = bs_call(spot, strike, r, div, vol, ttx);
+    std::cout << "BS formula euro price: " << bs_price << "\n";
+    ForwardPayoff fwd_payoff(strike);
+    TreeEuropean forward(ttx, fwd_payoff);
+    double fwd_price = tree.get_price(forward);
+    std::cout << "forward price by tree: " << fwd_price << "\n";
+    double fwd0 = std::exp(-r*ttx) * (spot * std::exp((r-div)*ttx) - strike);
+    std::cout << "actual forward price: " << fwd0 << "\n";
+    
+    // redo tree price with one more step
+    steps++;
+    BinomialTree tree2(spot, r_param, div_param, vol, steps, ttx);
+    double euro_price2 = tree2.get_price(euro_opt);
+    double am_price2 = tree2.get_price(am_opt);
+    std::cout << "euro/am call tree2 price: " << euro_price2 <<", " << am_price2 << "\n";
+    double fwd_price2 = tree2.get_price(forward);
+    std::cout << "forward price by tree2: " << fwd_price2 << "\n";
+    double euro_avg = 0.5 * (euro_price + euro_price2);
+    double am_avg = 0.5 * (am_price + am_price2);
+    double fwd_avg = 0.5 * (fwd_price + fwd_price2);
+    std::cout << "average prices: \neuro/am call avg price: " << euro_avg << ", " << am_avg << "\n";
+    std::cout << "forward avg price: " << fwd_avg << "\n";
+}
 
 
 
