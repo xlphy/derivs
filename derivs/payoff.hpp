@@ -10,7 +10,8 @@
 
 #include <utility>
 
-/* Payoff is a function of spot at expiry, may depend on other paramters like strikes, barrier levels
+/* Payoff is a function of spot at expiry, may depend on other paramters like strikes, barrier levels,
+ Payoff does not know any concepts of time, discounting, etc. It only factors out functional forms
  */
 
 // base class for Payoff, provide common interface

@@ -24,6 +24,8 @@
 		2207D53627A5FB0B00AD3A75 /* BlackScholes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53427A5FB0B00AD3A75 /* BlackScholes.cpp */; };
 		2207D53927A636A800AD3A75 /* solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53727A636A800AD3A75 /* solver.cpp */; };
 		2207D53C27A63BF300AD3A75 /* func_obj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53A27A63BF300AD3A75 /* func_obj.cpp */; };
+		2207D53F27A6EB3200AD3A75 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53D27A6EB3200AD3A75 /* factory.cpp */; };
+		2207D54127A6EB8D00AD3A75 /* registration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D54027A6EB8D00AD3A75 /* registration.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,10 @@
 		2207D53827A636A800AD3A75 /* solver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = solver.hpp; sourceTree = "<group>"; };
 		2207D53A27A63BF300AD3A75 /* func_obj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = func_obj.cpp; sourceTree = "<group>"; };
 		2207D53B27A63BF300AD3A75 /* func_obj.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = func_obj.hpp; sourceTree = "<group>"; };
+		2207D53D27A6EB3200AD3A75 /* factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = factory.cpp; sourceTree = "<group>"; };
+		2207D53E27A6EB3200AD3A75 /* factory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = factory.hpp; sourceTree = "<group>"; };
+		2207D54027A6EB8D00AD3A75 /* registration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = registration.cpp; sourceTree = "<group>"; };
+		2207D54227A73BC100AD3A75 /* factory_constructible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = factory_constructible.h; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -147,6 +153,10 @@
 				2207D53827A636A800AD3A75 /* solver.hpp */,
 				2207D53A27A63BF300AD3A75 /* func_obj.cpp */,
 				2207D53B27A63BF300AD3A75 /* func_obj.hpp */,
+				2207D53D27A6EB3200AD3A75 /* factory.cpp */,
+				2207D53E27A6EB3200AD3A75 /* factory.hpp */,
+				2207D54027A6EB8D00AD3A75 /* registration.cpp */,
+				2207D54227A73BC100AD3A75 /* factory_constructible.h */,
 			);
 			path = derivs;
 			sourceTree = "<group>";
@@ -214,6 +224,7 @@
 				2207D53027A5DFA900AD3A75 /* tree_product.cpp in Sources */,
 				2207D52A27A4DF0C00AD3A75 /* exotic_engine.cpp in Sources */,
 				2207D514279C466100AD3A75 /* mjarray.cpp in Sources */,
+				2207D53F27A6EB3200AD3A75 /* factory.cpp in Sources */,
 				2207D4FB27951AFA00AD3A75 /* random.cpp in Sources */,
 				2207D5072799235B00AD3A75 /* mcstats.cpp in Sources */,
 				2207D53327A5E4B200AD3A75 /* tree.cpp in Sources */,
@@ -223,6 +234,7 @@
 				2207D52D27A4FE6300AD3A75 /* test.cpp in Sources */,
 				2207D53C27A63BF300AD3A75 /* func_obj.cpp in Sources */,
 				2207D50E279A032D00AD3A75 /* convergence_tab.cpp in Sources */,
+				2207D54127A6EB8D00AD3A75 /* registration.cpp in Sources */,
 				2268C567278DC7EE00370682 /* main.cpp in Sources */,
 				2207D517279C795B00AD3A75 /* normals.cpp in Sources */,
 				2207D53627A5FB0B00AD3A75 /* BlackScholes.cpp in Sources */,

@@ -25,6 +25,7 @@
 #include "BlackScholes.hpp"
 #include "func_obj.hpp"
 #include "solver.hpp"
+#include "factory.hpp"
 
 /* Identify opportunities to refactor/improve codes
  1. be able to change to different types of payoff, call, put, digital, double digital, etc. --> Payoff class
@@ -75,6 +76,15 @@ std::ostream& operator<<(std::ostream& out, const std::vector<std::vector<double
             out << res[i][j] << ", ";
         out << "\n";
     }
+    return out;
+}
+
+// output std::vector<T>
+template<typename T>
+std::ostream& operator<<(std::ostream& out, const std::vector<T>& res){
+    for(const auto& e: res)
+        out << e << ", ";
+    out << "\n";
     return out;
 }
 
@@ -260,5 +270,29 @@ void test_solver(){
     
 }
 
+void test_factory(){
+    std::cout << "test payoff factory\n";
+    
+    double strike;
+    std::string name;
+    read_input("enter strike: ", strike);
+    read_input("enter payoff name: ", name);
+    
+    // get the singleton instance, can pass by-reference but not by-value
+    PayoffFactory& factory = PayoffFactory::instance();
+    Payoff* ptr = factory.create_payoff(name, strike);
+    if (ptr != nullptr){
+        // find it
+        double spot;
+        read_input("payoff found, please input a spot to check payoff function\nspot:", spot);
+        std::cout << "payoff(" << spot << ") = " << ptr->operator()(spot) << "\n";
+    }else{
+        // not found
+        std::cout << "unrecognized name, please input a registered name!\n";
+        std::vector<std::string> all_names = factory.get_all_ids();
+        std::cout << "all registered names are: " << all_names;
+    }
+    delete ptr;
+}
 
 

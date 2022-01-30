@@ -13,6 +13,7 @@ void test_simpleMC();
 void test_exoticEngine();
 void test_tree();
 void test_solver();
+void test_factory();
 
 
 #endif /* test_hpp */
