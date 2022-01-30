@@ -35,7 +35,7 @@ double bs_digital_call(double spot, double strike, double r, double d, double vo
     return std::exp(-r*ttx)*cum_norm(d2);
 }
 
-double bs_call_vega(double spot, double strike, double r, double d, double vol, double ttx)
+double bs_vega(double spot, double strike, double r, double d, double vol, double ttx)
 {
     double std = vol * std::sqrt(ttx);
     double lnm = std::log(spot/strike);

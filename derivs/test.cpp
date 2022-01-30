@@ -23,6 +23,8 @@
 #include "tree_product.hpp"
 #include "tree.hpp"
 #include "BlackScholes.hpp"
+#include "func_obj.hpp"
+#include "solver.hpp"
 
 /* Identify opportunities to refactor/improve codes
  1. be able to change to different types of payoff, call, put, digital, double digital, etc. --> Payoff class
@@ -224,6 +226,38 @@ void test_tree(){
     double fwd_avg = 0.5 * (fwd_price + fwd_price2);
     std::cout << "average prices: \neuro/am call avg price: " << euro_avg << ", " << am_avg << "\n";
     std::cout << "forward avg price: " << fwd_avg << "\n";
+}
+
+void test_solver(){
+    double ttx, strike, spot, vol, r, div, price;
+    
+    std::cout <<"Solve for implied Vol\n";
+    read_input<double>("Enter time to expiry: ", ttx);
+    read_input<double>("Strike: ", strike);
+    read_input<double>("Spot: ", spot);
+    read_input<double>("r: ", r);
+    read_input<double>("dividend: ", div);
+    read_input("input a call price: ", price);
+    
+    std::cout << "Solve by Bisection:\n";
+    double low, high, tol;
+    read_input("lower estimate: ", low);
+    read_input("higher estimate: ", high);
+    read_input("error tolerance: ", tol);
+    BSCall call_func{r, div, ttx, spot, strike};
+    vol = bisection(price, low, high, tol, call_func);
+    double price2 = bs_call(spot, strike, r, div, vol, ttx);
+    std::cout << "solved vol = " << vol << ", reprice = " << price2 << "\n";
+    
+    std::cout << "Solve by Newton-Raphson:\n";
+    double init_vol;
+    read_input("start by an initiall guess vol: ", init_vol);
+    read_input("error tolerance: ", tol);
+    BSCall2 call_func2(r, div, ttx, spot, strike);
+    vol = newton<BSCall2, &BSCall2::price, &BSCall2::vega>(price, init_vol, tol, call_func2);
+    price2 = bs_call(spot, strike, r, div, vol, ttx);
+    std::cout << "solved vol = " << vol << ", reprice = " << price2 << "\n";
+    
 }
 
 
