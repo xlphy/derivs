@@ -21,6 +21,7 @@
 class RandomBase{
 public:
     RandomBase(unsigned long _dim):dim(_dim){};
+    virtual ~RandomBase(){};
     
     // must implement
     virtual RandomBase* clone() const=0;
@@ -34,6 +35,7 @@ public:
     virtual void reset_dim(unsigned long new_dim){dim = new_dim;}
     
     unsigned long get_dim() const {return dim;}
+    
     
     
 private:

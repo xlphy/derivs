@@ -17,8 +17,8 @@ int main(int argc, const char * argv[]) {
     //test_tree();
     //test_solver();
     //test_factory();
-    std::cout << boost::math::erf(0.5);
-    
+    std::cout << boost::math::erf(0.5) << std::endl;
+
     
     double tmp;
     std::cout << "\nenter a number to exit:";

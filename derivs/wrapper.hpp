@@ -17,7 +17,7 @@
 template<typename T>
 class Wrapper{
 public:
-    Wrapper():ptr(nullptr){}
+    Wrapper(T* _ptr=nullptr):ptr(_ptr){}  // copy a pointer but not cloned object
     Wrapper(const T& inner){ptr = inner.clone();} // convert T to wrapper, bridge func(wrapper) and func(T)
     //copy
     Wrapper(const Wrapper<T>& rhs){
@@ -28,8 +28,10 @@ public:
     }
     Wrapper& operator=(const Wrapper<T>& rhs){
         if(this != &rhs){
+            // make it exception safe, get a new ptr first, clone() may throw
+            T* new_ptr = rhs.ptr != nullptr ? rhs.ptr->clone() : nullptr;
             delete ptr;
-            ptr = rhs.ptr != nullptr ? rhs.ptr->clone() : nullptr;
+            ptr = new_ptr;
         }
         return *this;
     }
@@ -45,10 +47,7 @@ public:
         return *this;
     }
     //destructor
-    ~Wrapper(){
-        if(ptr != nullptr)
-            delete ptr;
-    }
+    ~Wrapper(){delete ptr;}
     //pointer operators to access underlying data and its members/methods
     T& operator*(){return *ptr;}
     const T& operator*() const {return *ptr;}
