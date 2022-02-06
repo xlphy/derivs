@@ -6,14 +6,20 @@
 //
 
 #include "factory_constructible.h"
-
-/* not a generic registration
+#include "payoff.hpp"
 
 // invisible and global variables, initialization are done before main is called
 namespace {
+FactoryHelper<Payoff, CallPayoff> RegisterCall("call");
+FactoryHelper<Payoff, PutPayoff> RegisterPut("put");
+FactoryHelper<Payoff, SpreadPayoff> RegisterSpread("spread");
+
+/*
 PayoffHelper<CallPayoff> RegisterCall("call");
 PayoffHelper<PutPayoff> RegisterPut("put");
 PayoffHelper<ForwardPayoff> RegisterForward("forward");
+*/
+
 }
 
- */
+

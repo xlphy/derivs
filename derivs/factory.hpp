@@ -16,7 +16,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "payoff.hpp"
+
 #include "arglist.hpp"
 
 class noncopyable{
@@ -45,7 +45,7 @@ ArgListFactory<T>& FactoryInstance(){
 template<typename T>
 class ArgListFactory{
 public:
-    friend ArgListFactory<T>& FactoryInstance<T>();
+    friend ArgListFactory<T>& FactoryInstance<>();
     
     typedef T* (*create_T_func)(const ArgumentList&);
     void register_class(std::string class_id, create_T_func);
@@ -71,7 +71,7 @@ void ArgListFactory<T>::register_class(std::string class_id, create_T_func creat
 
 template<typename T>
 T* ArgListFactory<T>::create_T(ArgumentList args){
-    std::string id = args.get_struct_name();
+    std::string id = args.get_str_arg_val("name");
     if(creator_funcs.find(id) == creator_funcs.end())
         throw(id + " is an unknown class, Known types are : " + known_types);
     return (creator_funcs.find(id)->second)(args);
@@ -80,12 +80,15 @@ T* ArgListFactory<T>::create_T(ArgumentList args){
 // easy access function
 template<class T>
 T* get_from_factory(const ArgumentList& args){
-    return FactoryInstance<T>().creat_T(args);
+    return FactoryInstance<T>().create_T(args);
 }
+
 
 
 /* not a generic factory
  
+#include "payoff.hpp"  // note circular imports
+
 class PayoffFactory{
 public:
     typedef Payoff* (*create_payoff_func)(double );

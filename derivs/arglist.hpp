@@ -69,13 +69,13 @@ public:
     void add_list(const std::string& arg_name, const xlw::CellMatrix& values);
     
 private:
-    std::string struct_name;
+    std::string struct_name;  //base class name
     // store argument data
     std::vector<std::pair<std::string, ArgumentType>> arg_names;
     std::map<std::string, double> double_args;
     std::map<std::string, xlw::MyArray> array_args;
     std::map<std::string, xlw::MyMatrix> matrix_args;
-    std::map<std::string, std::string> str_args;
+    std::map<std::string, std::string> str_args; // should contain "name"
     std::map<std::string, xlw::CellMatrix> list_args;
     std::map<std::string, xlw::CellMatrix> cell_args;
     std::map<std::string, bool> bool_args;
