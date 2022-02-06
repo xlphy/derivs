@@ -18,6 +18,22 @@
 #include <string>
 #include "payoff.hpp"
 
+class noncopyable{
+protected:
+    noncopyable() = default;
+    ~noncopyable() = default;
+    
+    noncopyable(const noncopyable&) = delete;
+    noncopyable& operator=(const noncopyable&) = delete;
+//private:
+//    noncopyable(const noncopyable&);
+//    noncopyable& operator=(const noncopyable&);
+};
+
+//TODO: implement a generic template factory
+
+
+
 class PayoffFactory{
 public:
     typedef Payoff* (*create_payoff_func)(double );

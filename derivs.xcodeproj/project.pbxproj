@@ -27,6 +27,10 @@
 		2207D53F27A6EB3200AD3A75 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53D27A6EB3200AD3A75 /* factory.cpp */; };
 		2207D54127A6EB8D00AD3A75 /* registration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D54027A6EB8D00AD3A75 /* registration.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
+		2294A9E827ACC8F30009B4CA /* arglist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294A9E627ACC8F30009B4CA /* arglist.cpp */; };
+		2294AA8627ACD7550009B4CA /* DoubleOrNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294AA6E27ACD7550009B4CA /* DoubleOrNothing.cpp */; };
+		2294AA8927ACD7550009B4CA /* MJCellMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294AA7127ACD7550009B4CA /* MJCellMatrix.cpp */; };
+		2294AA9027ACD7550009B4CA /* NCmatrices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294AA7A27ACD7550009B4CA /* NCmatrices.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +88,26 @@
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2294A9E627ACC8F30009B4CA /* arglist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = arglist.cpp; sourceTree = "<group>"; };
+		2294A9E727ACC8F30009B4CA /* arglist.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = arglist.hpp; sourceTree = "<group>"; };
+		2294AA4727ACD7550009B4CA /* eshared_ptr_details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eshared_ptr_details.h; sourceTree = "<group>"; };
+		2294AA4D27ACD7550009B4CA /* CellValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellValue.h; sourceTree = "<group>"; };
+		2294AA5027ACD7550009B4CA /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		2294AA5127ACD7550009B4CA /* CellMatrixPimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellMatrixPimpl.h; sourceTree = "<group>"; };
+		2294AA5327ACD7550009B4CA /* eshared_ptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eshared_ptr.h; sourceTree = "<group>"; };
+		2294AA5527ACD7550009B4CA /* XlfArgDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XlfArgDesc.h; sourceTree = "<group>"; };
+		2294AA5B27ACD7550009B4CA /* NCmatrices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCmatrices.h; sourceTree = "<group>"; };
+		2294AA5F27ACD7550009B4CA /* EXCEL32_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXCEL32_API.h; sourceTree = "<group>"; };
+		2294AA6427ACD7550009B4CA /* XlfException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XlfException.h; sourceTree = "<group>"; };
+		2294AA6527ACD7550009B4CA /* CellMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellMatrix.h; sourceTree = "<group>"; };
+		2294AA6627ACD7550009B4CA /* MyContainers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContainers.h; sourceTree = "<group>"; };
+		2294AA6727ACD7550009B4CA /* MJCellMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCellMatrix.h; sourceTree = "<group>"; };
+		2294AA6927ACD7550009B4CA /* ArgList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgList.h; sourceTree = "<group>"; };
+		2294AA6C27ACD7550009B4CA /* DoubleOrNothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleOrNothing.h; sourceTree = "<group>"; };
+		2294AA6E27ACD7550009B4CA /* DoubleOrNothing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleOrNothing.cpp; sourceTree = "<group>"; };
+		2294AA7127ACD7550009B4CA /* MJCellMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MJCellMatrix.cpp; sourceTree = "<group>"; };
+		2294AA7A27ACD7550009B4CA /* NCmatrices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NCmatrices.cpp; sourceTree = "<group>"; };
+		2294AA7E27ACD7550009B4CA /* PathUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathUpdater.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +141,7 @@
 		2268C565278DC7EE00370682 /* derivs */ = {
 			isa = PBXGroup;
 			children = (
+				2294AA4227ACD7550009B4CA /* xlw */,
 				2268C566278DC7EE00370682 /* main.cpp */,
 				2207D4F927951AFA00AD3A75 /* random.cpp */,
 				2207D4FA27951AFA00AD3A75 /* random.hpp */,
@@ -157,8 +182,59 @@
 				2207D53E27A6EB3200AD3A75 /* factory.hpp */,
 				2207D54027A6EB8D00AD3A75 /* registration.cpp */,
 				2207D54227A73BC100AD3A75 /* factory_constructible.h */,
+				2294A9E627ACC8F30009B4CA /* arglist.cpp */,
+				2294A9E727ACC8F30009B4CA /* arglist.hpp */,
 			);
 			path = derivs;
+			sourceTree = "<group>";
+		};
+		2294AA4227ACD7550009B4CA /* xlw */ = {
+			isa = PBXGroup;
+			children = (
+				2294AA4327ACD7550009B4CA /* include */,
+				2294AA6D27ACD7550009B4CA /* src */,
+			);
+			path = xlw;
+			sourceTree = "<group>";
+		};
+		2294AA4327ACD7550009B4CA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2294AA4427ACD7550009B4CA /* xlw */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		2294AA4427ACD7550009B4CA /* xlw */ = {
+			isa = PBXGroup;
+			children = (
+				2294AA4727ACD7550009B4CA /* eshared_ptr_details.h */,
+				2294AA4D27ACD7550009B4CA /* CellValue.h */,
+				2294AA5027ACD7550009B4CA /* Singleton.h */,
+				2294AA5127ACD7550009B4CA /* CellMatrixPimpl.h */,
+				2294AA5327ACD7550009B4CA /* eshared_ptr.h */,
+				2294AA5527ACD7550009B4CA /* XlfArgDesc.h */,
+				2294AA5B27ACD7550009B4CA /* NCmatrices.h */,
+				2294AA5F27ACD7550009B4CA /* EXCEL32_API.h */,
+				2294AA6427ACD7550009B4CA /* XlfException.h */,
+				2294AA6527ACD7550009B4CA /* CellMatrix.h */,
+				2294AA6627ACD7550009B4CA /* MyContainers.h */,
+				2294AA6727ACD7550009B4CA /* MJCellMatrix.h */,
+				2294AA6927ACD7550009B4CA /* ArgList.h */,
+				2294AA6C27ACD7550009B4CA /* DoubleOrNothing.h */,
+			);
+			path = xlw;
+			sourceTree = "<group>";
+		};
+		2294AA6D27ACD7550009B4CA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2294AA6E27ACD7550009B4CA /* DoubleOrNothing.cpp */,
+				2294AA7127ACD7550009B4CA /* MJCellMatrix.cpp */,
+				2294AA7A27ACD7550009B4CA /* NCmatrices.cpp */,
+				2294AA7E27ACD7550009B4CA /* PathUpdater.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,8 +297,10 @@
 				2207D51A279F011700AD3A75 /* anti_thetic.cpp in Sources */,
 				2207D5042798C9A500AD3A75 /* parameters.cpp in Sources */,
 				2207D5012795299300AD3A75 /* option.cpp in Sources */,
+				2294A9E827ACC8F30009B4CA /* arglist.cpp in Sources */,
 				2207D53027A5DFA900AD3A75 /* tree_product.cpp in Sources */,
 				2207D52A27A4DF0C00AD3A75 /* exotic_engine.cpp in Sources */,
+				2294AA9027ACD7550009B4CA /* NCmatrices.cpp in Sources */,
 				2207D514279C466100AD3A75 /* mjarray.cpp in Sources */,
 				2207D53F27A6EB3200AD3A75 /* factory.cpp in Sources */,
 				2207D4FB27951AFA00AD3A75 /* random.cpp in Sources */,
@@ -230,8 +308,10 @@
 				2207D53327A5E4B200AD3A75 /* tree.cpp in Sources */,
 				2207D52727A4B49000AD3A75 /* path_dependent.cpp in Sources */,
 				2207D53927A636A800AD3A75 /* solver.cpp in Sources */,
+				2294AA8627ACD7550009B4CA /* DoubleOrNothing.cpp in Sources */,
 				2207D4FE27951C6600AD3A75 /* payoff.cpp in Sources */,
 				2207D52D27A4FE6300AD3A75 /* test.cpp in Sources */,
+				2294AA8927ACD7550009B4CA /* MJCellMatrix.cpp in Sources */,
 				2207D53C27A63BF300AD3A75 /* func_obj.cpp in Sources */,
 				2207D50E279A032D00AD3A75 /* convergence_tab.cpp in Sources */,
 				2207D54127A6EB8D00AD3A75 /* registration.cpp in Sources */,
@@ -359,7 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /usr/local/boost_1_77_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/boost_1_77_0,
+					/Users/xin/cpp/derivs/derivs/xlw/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -368,7 +451,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /usr/local/boost_1_77_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/boost_1_77_0,
+					/Users/xin/cpp/derivs/derivs/xlw/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
