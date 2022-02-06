@@ -13,6 +13,12 @@
 
 #include "factory.hpp"
 
+
+
+
+
+/* not a generic helper
+
 template<typename T> // T is a concrete inherited class from base class
 class PayoffHelper{
 public:
@@ -33,6 +39,6 @@ Payoff* PayoffHelper<T>::create(double strike){
     return new T(strike);
 }
 
-
+*/
 
 #endif /* factory_constructible_h */

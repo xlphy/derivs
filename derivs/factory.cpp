@@ -8,6 +8,8 @@
 #include "factory.hpp"
 #include <iostream>
 
+/*not a generic factory implementation
+ 
 // singleton
 PayoffFactory& PayoffFactory:: instance()
 {
@@ -42,5 +44,4 @@ std::vector<std::string> PayoffFactory::get_all_ids() const
     for(const auto& entry: creator_funcs) ids.push_back(entry.first);
     return ids;
 }
-
-
+*/

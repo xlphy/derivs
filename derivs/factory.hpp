@@ -17,6 +17,7 @@
 #include <vector>
 #include <string>
 #include "payoff.hpp"
+#include "arglist.hpp"
 
 class noncopyable{
 protected:
@@ -30,10 +31,61 @@ protected:
 //    noncopyable& operator=(const noncopyable&);
 };
 
-//TODO: implement a generic template factory
+//A generic template factory
+template<class T>
+class ArgListFactory;
+
+template<class T>
+ArgListFactory<T>& FactoryInstance(){
+    static ArgListFactory<T> obj;
+    return obj;
+}
+
+//T should be a base class
+template<typename T>
+class ArgListFactory{
+public:
+    friend ArgListFactory<T>& FactoryInstance<T>();
+    
+    typedef T* (*create_T_func)(const ArgumentList&);
+    void register_class(std::string class_id, create_T_func);
+    T* create_T(ArgumentList args);
+    ~ArgListFactory(){};
+    
+    std::string get_known_types() const {return known_types;}
+private:
+    std::map<std::string, create_T_func> creator_funcs;
+    std::string known_types;
+    // avoid create ArgListFactory by itself, created only by FactoryInstance function
+    ArgListFactory(){}
+    ArgListFactory(const ArgListFactory&){}
+    ArgListFactory& operator=(const ArgListFactory&){return *this;} // return the only copy
+};
+
+template<typename T>
+void ArgListFactory<T>::register_class(std::string class_id, create_T_func creator_func){
+    to_lower_case(class_id);
+    creator_funcs.insert(std::pair<std::string, create_T_func>(class_id, creator_func));
+    known_types += " " + class_id;
+}
+
+template<typename T>
+T* ArgListFactory<T>::create_T(ArgumentList args){
+    std::string id = args.get_struct_name();
+    if(creator_funcs.find(id) == creator_funcs.end())
+        throw(id + " is an unknown class, Known types are : " + known_types);
+    return (creator_funcs.find(id)->second)(args);
+}
+
+// easy access function
+template<class T>
+T* get_from_factory(const ArgumentList& args){
+    return FactoryInstance<T>().creat_T(args);
+}
 
 
-
+/* not a generic factory
+ 
 class PayoffFactory{
 public:
     typedef Payoff* (*create_payoff_func)(double );
@@ -56,5 +108,6 @@ private:
     PayoffFactory& operator=(const PayoffFactory&){return *this;}  // copy assignment
 };
 
+*/
 
 #endif /* factory_hpp */

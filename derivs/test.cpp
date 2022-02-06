@@ -278,6 +278,8 @@ void test_factory(){
     read_input("enter strike: ", strike);
     read_input("enter payoff name: ", name);
     
+    
+    /* test non generic factory
     // get the singleton instance, can pass by-reference but not by-value
     PayoffFactory& factory = PayoffFactory::instance();
     Payoff* ptr = factory.create_payoff(name, strike);
@@ -293,6 +295,7 @@ void test_factory(){
         std::cout << "all registered names are: " << all_names;
     }
     delete ptr;
+    */
 }
 
 
