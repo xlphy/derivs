@@ -31,7 +31,11 @@ class Instrument{
 
 
 
+namespace myQuantLib{
 
+
+
+}
 
 
 
