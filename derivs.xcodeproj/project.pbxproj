@@ -950,6 +950,7 @@
 		22D9FC6A27BB560F002AF019 /* iborindex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9F8C527BB560A002AF019 /* iborindex.cpp */; };
 		22D9FC6B27BB560F002AF019 /* region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9F8C927BB560A002AF019 /* region.cpp */; };
 		22D9FC6C27BB560F002AF019 /* swapindex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9F8D527BB560A002AF019 /* swapindex.cpp */; };
+		22D9FC9D27BCBA1A002AF019 /* swap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FC9B27BCBA1A002AF019 /* swap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3439,6 +3440,8 @@
 		22D9F8D427BB560A002AF019 /* inflationindex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = inflationindex.hpp; sourceTree = "<group>"; };
 		22D9F8D527BB560A002AF019 /* swapindex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swapindex.cpp; sourceTree = "<group>"; };
 		22D9F8D627BB560A002AF019 /* interestrateindex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interestrateindex.hpp; sourceTree = "<group>"; };
+		22D9FC9B27BCBA1A002AF019 /* swap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = swap.cpp; sourceTree = "<group>"; };
+		22D9FC9C27BCBA1A002AF019 /* swap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = swap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3575,6 +3578,8 @@
 			children = (
 				22D9D41627BB4B20002AF019 /* instrument.cpp */,
 				22D9D41727BB4B20002AF019 /* instrument.hpp */,
+				22D9FC9B27BCBA1A002AF019 /* swap.cpp */,
+				22D9FC9C27BCBA1A002AF019 /* swap.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7217,6 +7222,7 @@
 				22D9FB6F27BB560D002AF019 /* norway.cpp in Sources */,
 				22D9F9AC27BB560C002AF019 /* binomialtree.cpp in Sources */,
 				22D9FC2627BB560E002AF019 /* zeroyieldstructure.cpp in Sources */,
+				22D9FC9D27BCBA1A002AF019 /* swap.cpp in Sources */,
 				22D9FC0A27BB560E002AF019 /* blackvoltermstructure.cpp in Sources */,
 				22D9FA7327BB560C002AF019 /* hybridhestonhullwhiteprocess.cpp in Sources */,
 				22D9FC5327BB560E002AF019 /* settings.cpp in Sources */,
