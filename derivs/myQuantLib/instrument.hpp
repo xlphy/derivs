@@ -43,7 +43,7 @@ class Observer;
 class Observable{
     friend class Observer;
 public:
-    virtual ~Observable(){}; // do not delete _observers since it does not own them
+    virtual ~Observable(){}; // do not delete Observer* since it does not own them
     void notify_observers();
 protected:
     Observable(){};
@@ -71,14 +71,15 @@ public:
         _observables.remove(o);
     }
     virtual void update()=0;
-    
+protected:
+    Observer(){};
 private:
     std::list<std::shared_ptr<Observable>> _observables;
 };
 
 class LazyObject: public virtual Observer, public virtual Observable {
 public:
-    void update() override {calculated_=false;}
+    void update() override {calculated_=false;}  // implements Observer update
     virtual void calculate() const {
         if(!calculated_){
             calculated_ = true;  // set first, terminate for recursive calls
@@ -92,24 +93,25 @@ public:
         // do nothing if calculated_ = true
     }
 protected:
+    LazyObject(){};
     mutable bool calculated_;
     virtual void do_calculation() const = 0;
 };
 
 class Instrument : public LazyObject{
 protected:
-    mutable double NPV_;
+    mutable double _npv;
 public:
     virtual ~Instrument(){};
     // to be implemented in derived classes
     // virtual void do_calculation() const (from LazyObject)
-    virtual double error_estimate() const = 0;
+    virtual double error_estimate() const {return 0.0;}  // 0.0 means no error estimate is available.
     virtual bool is_expired() const = 0;
-    virtual void setup_expired() const {NPV_ = 0.0;}
+    virtual void setup_expired() const {_npv = 0.0;}
     
     double NPV() const {
-        calculate(); // set NPV_
-        return NPV_;
+        calculate(); // set _npv
+        return _npv;
     }
     void calculate() const override {
         if(is_expired()){
@@ -122,6 +124,16 @@ public:
     }
 };
 
+/*
+ A concrete instrument class needs to at least implement:
+ 1. double error_estimate() const (optional)
+ 2. bool is_expired() const
+ 3. void setup_expired() const
+ 4. void do_calculation() const, requires to set _npv
+ To proper setup Observer pattern, one also needs to consider when to use register/unregister functions
+ To proper use instrument, one needs to decide when to trigger notify_observers()
+ 
+ */
 
 
 }
