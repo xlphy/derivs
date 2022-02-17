@@ -32,54 +32,13 @@ class Instrument{
 #define instrument_hpp
 
 
-#include <list>
-#include <memory>
+#include "observer.hpp"
 
 namespace myQuantLib{
 
-// observer pattern
-class Observer;
-
-class Observable{
-    friend class Observer;
-public:
-    virtual ~Observable(){}; // do not delete Observer* since it does not own them
-    void notify_observers();
-protected:
-    Observable(){};
-private:
-    void register_observer(Observer* o) {_observers.push_back(o);}
-    void unregister_observer(Observer* o) {_observers.remove(o);}
-    std::list<Observer*> _observers;
-};
-
-class Observer{
-public:
-    virtual ~Observer(){
-        //remove registration from all Observables it subscribes to
-        for(std::list<std::shared_ptr<Observable>>::iterator it = _observables.begin();
-            it != _observables.end(); ++it ){
-            (*it)->unregister_observer(this);
-        }
-    }
-    void register_with(const std::shared_ptr<Observable>& o){
-        o->register_observer(this); // access private methods because of friend class
-        _observables.push_back(o);
-    }
-    void unregister_with(const std::shared_ptr<Observable>& o){
-        o->unregister_observer(this); // access private methods because of friend class
-        _observables.remove(o);
-    }
-    virtual void update()=0;
-protected:
-    Observer(){};
-private:
-    std::list<std::shared_ptr<Observable>> _observables;
-};
-
 class LazyObject: public virtual Observer, public virtual Observable {
 public:
-    void update() override {calculated_=false;}  // implements Observer update
+    void update() override {calculated_ = false;}  // implements Observer update
     virtual void calculate() const {
         if(!calculated_){
             calculated_ = true;  // set first, terminate for recursive calls
@@ -132,7 +91,6 @@ public:
  4. void do_calculation() const, requires to set _npv
  To proper setup Observer pattern, one also needs to consider when to use register/unregister functions
  To proper use instrument, one needs to decide when to trigger notify_observers()
- 
  */
 
 

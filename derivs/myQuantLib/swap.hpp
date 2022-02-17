@@ -17,6 +17,8 @@ namespace myQuantLib {
 
 //TODO: include more types, CashFlow, Handle, YieldTermStructure
 
+/*
+ 
 class Swap : public Instrument {
 public:
     Swap(const std::vector<std::shared_ptr<CashFlow>>& first_leg,
@@ -34,6 +36,8 @@ protected:
     Handle<YieldTermStructure> _term_struct;
     mutable double _first_leg_bps, _second_leg_bps; // in addition to _npv, more results to be saved.
 };
+ 
+ */
 
 }
 

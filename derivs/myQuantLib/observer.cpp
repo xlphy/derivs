@@ -1,12 +1,11 @@
 //
-//  instrument.cpp
+//  observer.cpp
 //  derivs
 //
-//  Created by Xin Li on 2/14/22.
+//  Created by Xin Li on 2/16/22.
 //
 
-#include "instrument.hpp"
-
+#include "observer.hpp"
 
 namespace myQuantLib {
 
@@ -16,3 +15,4 @@ void Observable::notify_observers(){
 }
 
 }
+
