@@ -10,26 +10,9 @@
 
 //#include <boost/math/special_functions/erf.hpp>
 
-#include <memory>
-
 
 
 int main(int argc, const char * argv[]) {
-    int * p = new int(10);
-    
-    std::shared_ptr<int> a(p);
-    std::cout << (*a.get()) << "\n";
-    std::cout << (*a) << "\n";
-    
-    std::cout << a.use_count() << "\n";
-    std::cout << (a.get() == nullptr) << "\n";
-    
-    {
-        std::shared_ptr<int> b = a;
-        std::cout << b.use_count() << "\n";
-    }
-    
-    std::cout << a.use_count() << "\n";
     
     
     //test_simpleMC();

@@ -952,6 +952,8 @@
 		22D9FC9D27BCBA1A002AF019 /* swap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FC9B27BCBA1A002AF019 /* swap.cpp */; };
 		22D9FCA027BD527C002AF019 /* observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FC9E27BD527C002AF019 /* observer.cpp */; };
 		22D9FCA327BD8645002AF019 /* handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA127BD8645002AF019 /* handle.cpp */; };
+		22D9FCA627BFD5D3002AF019 /* date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA427BFD5D3002AF019 /* date.cpp */; };
+		22D9FCA927C191B4002AF019 /* errors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA727C191B4002AF019 /* errors.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3446,6 +3448,10 @@
 		22D9FC9F27BD527C002AF019 /* observer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = observer.hpp; sourceTree = "<group>"; };
 		22D9FCA127BD8645002AF019 /* handle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = handle.cpp; sourceTree = "<group>"; };
 		22D9FCA227BD8645002AF019 /* handle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = handle.hpp; sourceTree = "<group>"; };
+		22D9FCA427BFD5D3002AF019 /* date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = date.cpp; sourceTree = "<group>"; };
+		22D9FCA527BFD5D3002AF019 /* date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = date.hpp; sourceTree = "<group>"; };
+		22D9FCA727C191B4002AF019 /* errors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = errors.cpp; sourceTree = "<group>"; };
+		22D9FCA827C191B4002AF019 /* errors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = errors.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3587,6 +3593,10 @@
 				22D9FC9F27BD527C002AF019 /* observer.hpp */,
 				22D9FCA127BD8645002AF019 /* handle.cpp */,
 				22D9FCA227BD8645002AF019 /* handle.hpp */,
+				22D9FCA427BFD5D3002AF019 /* date.cpp */,
+				22D9FCA527BFD5D3002AF019 /* date.hpp */,
+				22D9FCA727C191B4002AF019 /* errors.cpp */,
+				22D9FCA827C191B4002AF019 /* errors.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7344,6 +7354,7 @@
 				2294AA8627ACD7550009B4CA /* DoubleOrNothing.cpp in Sources */,
 				22D9F99427BB560C002AF019 /* fdhestondoublebarrierengine.cpp in Sources */,
 				22D9FA9827BB560C002AF019 /* g2.cpp in Sources */,
+				22D9FCA627BFD5D3002AF019 /* date.cpp in Sources */,
 				22D9FBFD27BB560E002AF019 /* gaussian1dswaptionvolatility.cpp in Sources */,
 				22D9FA8D27BB560C002AF019 /* lmvolmodel.cpp in Sources */,
 				22D9FB0527BB560D002AF019 /* accountingengine.cpp in Sources */,
@@ -7678,6 +7689,7 @@
 				22D9FABA27BB560D002AF019 /* multistepnothing.cpp in Sources */,
 				22D9FA6227BB560C002AF019 /* mchullwhiteengine.cpp in Sources */,
 				22D9F9FB27BB560C002AF019 /* fdmamericanstepcondition.cpp in Sources */,
+				22D9FCA927C191B4002AF019 /* errors.cpp in Sources */,
 				22D9F91B27BB560B002AF019 /* energycommodity.cpp in Sources */,
 				22D9F8EE27BB560B002AF019 /* blackcdsoptionengine.cpp in Sources */,
 				22D9FA1A27BB560C002AF019 /* gaussian1dfloatfloatswaptionengine.cpp in Sources */,
