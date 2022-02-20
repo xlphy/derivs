@@ -103,8 +103,14 @@ public:
     
     // static methods
     static Date today();
-    static Date min_date();
-    static Date max_date();
+    static Date min_date(){
+        static const Date d(min_serial_number());
+        return d;
+    }
+    static Date max_date(){
+        static const Date d(max_serial_number());
+        return d;
+    }
     static bool is_leap(Year y);
     static Date end_of_month(const Date& d);
     static bool is_end_of_month(const Date& d);
@@ -115,8 +121,8 @@ public:
     // e.g., 4th Thursday of March, 1998 was March 26th, 1998
     static Date nth_weekday(std::size_t n, Weekday w, Month m, Year y);
 private:
-    static Date::serial_type min_serial_number();
-    static Date::serial_type max_serial_number();
+    static Date::serial_type min_serial_number(){return 367;} //Jan 1st, 1901
+    static Date::serial_type max_serial_number(){return 109574;} // Dec 31st, 2199
     static void check_serial_number(Date::serial_type serial_number);
     
     Date::serial_type _serial_number;
