@@ -37,6 +37,25 @@ if(!(condition)){\
 }\
 else
 
+#define myQL_ENSURE(condition, message)\
+if(!(condition)) { \
+    std::ostringstream _msg_stream; \
+    _msg_stream << message; \
+    throw myQuantLib::Error(__FILE__, __LINE__, \
+                            BOOST_CURRENT_FUNCTION, _msg_stream.str()); \
+} \
+else
+
+#define myQL_MULTILINE_FAILURE_BEGIN do {
+#define myQL_MULTILINE_FAILURE_END } while(false)
+
+#define myQL_FAIL(message)\
+myQL_MULTILINE_FAILURE_BEGIN \
+    std::ostringstream _msg_stream; \
+    _msg_stream << message; \
+    throw myQuantLib::Error(__FILE__, __LINE__, \
+                            BOOST_CURRENT_FUNCTION, _msg_stream.str()); \
+myQL_MULTILINE_FAILURE_END
 
 
 }

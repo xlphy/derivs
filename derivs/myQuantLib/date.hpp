@@ -46,7 +46,7 @@ std::ostream& operator<<(std::ostream&, const Weekday&);
 
 enum Month {
     January   = 1,
-    Feburary  = 2,
+    February  = 2,
     March     = 3,
     April     = 4,
     May       = 5,
@@ -95,9 +95,9 @@ public:
     Date& operator+=(Date::serial_type days);
     Date& operator-=(Date::serial_type days);
     Date& operator++();
-    Date& operator++(int );
+    Date operator++(int );
     Date& operator--();
-    Date& operator--(int );
+    Date operator--(int );
     Date operator+(Date::serial_type days) const;
     Date operator-(Date::serial_type days) const;
     
@@ -121,8 +121,9 @@ public:
     // e.g., 4th Thursday of March, 1998 was March 26th, 1998
     static Date nth_weekday(std::size_t n, Weekday w, Month m, Year y);
 private:
-    static Date::serial_type min_serial_number(){return 367;} //Jan 1st, 1901
-    static Date::serial_type max_serial_number(){return 109574;} // Dec 31st, 2199
+    // static members and methods, only _serial_number is instance specific
+    static Date::serial_type min_serial_number(){return 366;} //Jan 1st, 1901
+    static Date::serial_type max_serial_number(){return 109573;} // Dec 31st, 2199
     static void check_serial_number(Date::serial_type serial_number);
     
     Date::serial_type _serial_number;
@@ -164,8 +165,9 @@ std::ostream& operator<<(std::ostream&, const Date&);
 
 // inline definitions
 inline Weekday Date::weekday() const{
-    int w = _serial_number % 7;
-    return Weekday(w == 0 ? 7: w);
+    //int w = _serial_number % 7;
+    //return Weekday(w == 0 ? 1: w);
+    return Weekday(_serial_number % 7 + 1);
 }
 
 inline Day Date::day_of_month() const{

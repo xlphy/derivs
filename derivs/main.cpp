@@ -14,7 +14,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    
+    std::cout << (7 % 7 + 1) << "\n";
     //test_simpleMC();
     //test_exoticEngine();
     //test_tree();
