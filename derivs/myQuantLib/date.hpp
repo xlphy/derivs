@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <functional>
+#include <string>
+#include "period.hpp"
 
 namespace myQuantLib{
 
@@ -81,6 +83,7 @@ public:
     
     explicit Date(Date::serial_type serial_number);
     Date(Day d, Month m, Year y);
+    Date(const std::string& date_str);
     
     // inspectors
     Weekday weekday() const;
@@ -94,12 +97,17 @@ public:
     // date arithmetic
     Date& operator+=(Date::serial_type days);
     Date& operator-=(Date::serial_type days);
+    Date& operator+=(const Period&); //TODO: add Period
+    Date& operator-=(const Period&); //TODO: add Period
+    
     Date& operator++();
     Date operator++(int );
     Date& operator--();
     Date operator--(int );
     Date operator+(Date::serial_type days) const;
     Date operator-(Date::serial_type days) const;
+    Date operator+(const Period&) const;
+    Date operator-(const Period&) const;
     
     // static methods
     static Date today();
@@ -133,30 +141,30 @@ private:
     static Date::serial_type year_offset(Year y);
 };
 
-Date::serial_type operator-(const Date& d1, const Date& d2){
+inline Date::serial_type operator-(const Date& d1, const Date& d2){
     return d1.serial_number() - d2.serial_number();
 }
 
-double days_between(const Date& d1, const Date& d2){
+// inline definitions
+inline double days_between(const Date& d1, const Date& d2){
     return double(d2 - d1);
 }
-
-bool operator==(const Date& d1, const Date& d2){
+inline bool operator==(const Date& d1, const Date& d2){
     return d1.serial_number() == d2.serial_number();
 }
-bool operator!=(const Date& d1, const Date& d2){
+inline bool operator!=(const Date& d1, const Date& d2){
     return d1.serial_number() != d2.serial_number();
 }
-bool operator<(const Date& d1, const Date& d2){
+inline bool operator<(const Date& d1, const Date& d2){
     return d1.serial_number() < d2.serial_number();
 }
-bool operator<=(const Date& d1, const Date& d2){
+inline bool operator<=(const Date& d1, const Date& d2){
     return d1.serial_number() <= d2.serial_number();
 }
-bool operator>(const Date& d1, const Date& d2){
+inline bool operator>(const Date& d1, const Date& d2){
     return d1.serial_number() > d2.serial_number();
 }
-bool operator>=(const Date& d1, const Date& d2){
+inline bool operator>=(const Date& d1, const Date& d2){
     return d1.serial_number() >= d2.serial_number();
 }
 
@@ -186,8 +194,16 @@ inline Date Date::operator+(Date::serial_type days) const{
     return Date(_serial_number + days);
 }
 
+inline Date Date::operator+(const Period& p) const {
+    return advance(*this, p.length(), p.units());
+}
+
 inline Date Date::operator-(Date::serial_type days) const{
     return Date(_serial_number - days);
+}
+
+inline Date Date::operator-(const Period& p) const {
+    return advance(*this, -p.length(), p.units());
 }
 
 inline Date Date::end_of_month(const Date &d) {

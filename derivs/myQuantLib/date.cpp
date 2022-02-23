@@ -11,8 +11,6 @@
 #include <boost/functional/hash.hpp>
 
 namespace myQuantLib {
-// TODO: implement the rest of Date functions;
-
 // _serial_number = 1 -> Jan 1st 1900, keep a total number of days starting Jan 1st 1900
 // constructors
 Date::Date(Date::serial_type serial_number): _serial_number(serial_number){
@@ -36,6 +34,26 @@ Date::Date(Day d, Month m, Year y){
     _serial_number = d + offset + year_offset(y);
 }
 
+Date::Date(const std::string& date_str) {
+    // assume format yyyy-m-d
+    std::string delimiter = "-";
+    std::size_t beg_pos = 0, end_pos=0;
+    // find year
+    end_pos = date_str.find(delimiter, beg_pos);
+    Year y = std::stoi(date_str.substr(beg_pos, end_pos-beg_pos));
+    // find month
+    beg_pos = end_pos + 1;
+    end_pos = date_str.find(delimiter, beg_pos);
+    Month m = Month(std::stoi(date_str.substr(beg_pos, end_pos-beg_pos)));
+    // find day
+    beg_pos = end_pos + 1;
+    Day d = std::stoi(date_str.substr(beg_pos));
+    // create an instance, checking and use its _serial_number
+    Date tmp(d, m, y);
+    _serial_number = tmp.serial_number();
+}
+
+
 // inspectors
 Month Date::month() const {
     Day d = day_of_year();
@@ -45,7 +63,7 @@ Month Date::month() const {
     bool leap = is_leap(year());
     while (d <= month_offset(Month(m), leap))
         --m;
-    while (d > month_offset(Month(m), leap))
+    while (d > month_offset(Month(m+1), leap))
         ++m;
     return Month(m);
 }
@@ -211,7 +229,7 @@ std::ostream& operator<<(std::ostream& out, const Date& d) {
     if (d == Date()) {
         out << "null date";
     } else {
-        out << d.year() << "-" << d.month() << "-" << d.day_of_month();
+        out << d.year() << "-" << int(d.month()) << "-" << int(d.day_of_month());
     }
     return out;
 }

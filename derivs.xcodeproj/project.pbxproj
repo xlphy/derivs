@@ -954,6 +954,8 @@
 		22D9FCA327BD8645002AF019 /* handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA127BD8645002AF019 /* handle.cpp */; };
 		22D9FCA627BFD5D3002AF019 /* date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA427BFD5D3002AF019 /* date.cpp */; };
 		22D9FCA927C191B4002AF019 /* errors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA727C191B4002AF019 /* errors.cpp */; };
+		22D9FCAD27C5D617002AF019 /* test_date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAB27C5D617002AF019 /* test_date.cpp */; };
+		22D9FCB027C5E585002AF019 /* period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAE27C5E585002AF019 /* period.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3452,6 +3454,10 @@
 		22D9FCA527BFD5D3002AF019 /* date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = date.hpp; sourceTree = "<group>"; };
 		22D9FCA727C191B4002AF019 /* errors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = errors.cpp; sourceTree = "<group>"; };
 		22D9FCA827C191B4002AF019 /* errors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = errors.hpp; sourceTree = "<group>"; };
+		22D9FCAB27C5D617002AF019 /* test_date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_date.cpp; sourceTree = "<group>"; };
+		22D9FCAC27C5D617002AF019 /* test.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test.hpp; sourceTree = "<group>"; };
+		22D9FCAE27C5E585002AF019 /* period.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = period.cpp; sourceTree = "<group>"; };
+		22D9FCAF27C5E585002AF019 /* period.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = period.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3487,49 +3493,50 @@
 			children = (
 				22D9EEFB27BB55FA002AF019 /* QuantLib */,
 				22D9D41527BB0B33002AF019 /* myQuantLib */,
-				2294AA4227ACD7550009B4CA /* xlw */,
+				22D9FCAA27C5D544002AF019 /* myQuantLibTest */,
 				2268C566278DC7EE00370682 /* main.cpp */,
-				2207D4F927951AFA00AD3A75 /* random.cpp */,
-				2207D4FA27951AFA00AD3A75 /* random.hpp */,
-				2207D4FC27951C6600AD3A75 /* payoff.cpp */,
-				2207D4FD27951C6600AD3A75 /* payoff.hpp */,
-				2207D4FF2795299300AD3A75 /* option.cpp */,
-				2207D5002795299300AD3A75 /* option.hpp */,
-				2207D5022798C9A500AD3A75 /* parameters.cpp */,
-				2207D5032798C9A500AD3A75 /* parameters.hpp */,
-				2207D5052799235B00AD3A75 /* mcstats.cpp */,
-				2207D5062799235B00AD3A75 /* mcstats.hpp */,
-				2207D50A2799F2FB00AD3A75 /* wrapper.hpp */,
-				2207D50C279A032D00AD3A75 /* convergence_tab.cpp */,
-				2207D50D279A032D00AD3A75 /* convergence_tab.hpp */,
-				2207D512279C466100AD3A75 /* mjarray.cpp */,
-				2207D513279C466100AD3A75 /* mjarray.hpp */,
-				2207D515279C795B00AD3A75 /* normals.cpp */,
-				2207D516279C795B00AD3A75 /* normals.hpp */,
-				2207D518279F011700AD3A75 /* anti_thetic.cpp */,
-				2207D519279F011700AD3A75 /* anti_thetic.hpp */,
-				2207D52527A4B49000AD3A75 /* path_dependent.cpp */,
-				2207D52627A4B49000AD3A75 /* path_dependent.hpp */,
-				2207D52827A4DF0C00AD3A75 /* exotic_engine.cpp */,
-				2207D52927A4DF0C00AD3A75 /* exotic_engine.hpp */,
-				2207D52B27A4FE6300AD3A75 /* test.cpp */,
-				2207D52C27A4FE6300AD3A75 /* test.hpp */,
-				2207D52E27A5DFA900AD3A75 /* tree_product.cpp */,
-				2207D52F27A5DFA900AD3A75 /* tree_product.hpp */,
-				2207D53127A5E4B200AD3A75 /* tree.cpp */,
-				2207D53227A5E4B200AD3A75 /* tree.hpp */,
-				2207D53427A5FB0B00AD3A75 /* BlackScholes.cpp */,
-				2207D53527A5FB0B00AD3A75 /* BlackScholes.hpp */,
-				2207D53727A636A800AD3A75 /* solver.cpp */,
-				2207D53827A636A800AD3A75 /* solver.hpp */,
-				2207D53A27A63BF300AD3A75 /* func_obj.cpp */,
-				2207D53B27A63BF300AD3A75 /* func_obj.hpp */,
-				2207D53D27A6EB3200AD3A75 /* factory.cpp */,
-				2207D53E27A6EB3200AD3A75 /* factory.hpp */,
-				2207D54027A6EB8D00AD3A75 /* registration.cpp */,
-				2207D54227A73BC100AD3A75 /* factory_constructible.h */,
 				2294A9E627ACC8F30009B4CA /* arglist.cpp */,
+				2207D518279F011700AD3A75 /* anti_thetic.cpp */,
+				2207D53427A5FB0B00AD3A75 /* BlackScholes.cpp */,
+				2207D50C279A032D00AD3A75 /* convergence_tab.cpp */,
+				2207D52827A4DF0C00AD3A75 /* exotic_engine.cpp */,
+				2207D53D27A6EB3200AD3A75 /* factory.cpp */,
+				2207D53A27A63BF300AD3A75 /* func_obj.cpp */,
+				2207D5052799235B00AD3A75 /* mcstats.cpp */,
+				2207D512279C466100AD3A75 /* mjarray.cpp */,
+				2207D515279C795B00AD3A75 /* normals.cpp */,
+				2207D4FF2795299300AD3A75 /* option.cpp */,
+				2207D5022798C9A500AD3A75 /* parameters.cpp */,
+				2207D52527A4B49000AD3A75 /* path_dependent.cpp */,
+				2207D4FC27951C6600AD3A75 /* payoff.cpp */,
+				2207D4F927951AFA00AD3A75 /* random.cpp */,
+				2207D54027A6EB8D00AD3A75 /* registration.cpp */,
+				2207D53727A636A800AD3A75 /* solver.cpp */,
+				2207D52B27A4FE6300AD3A75 /* test.cpp */,
+				2207D52E27A5DFA900AD3A75 /* tree_product.cpp */,
+				2207D53127A5E4B200AD3A75 /* tree.cpp */,
+				2207D54227A73BC100AD3A75 /* factory_constructible.h */,
+				2207D519279F011700AD3A75 /* anti_thetic.hpp */,
 				2294A9E727ACC8F30009B4CA /* arglist.hpp */,
+				2207D53527A5FB0B00AD3A75 /* BlackScholes.hpp */,
+				2207D50D279A032D00AD3A75 /* convergence_tab.hpp */,
+				2207D52927A4DF0C00AD3A75 /* exotic_engine.hpp */,
+				2207D53E27A6EB3200AD3A75 /* factory.hpp */,
+				2207D53B27A63BF300AD3A75 /* func_obj.hpp */,
+				2207D5062799235B00AD3A75 /* mcstats.hpp */,
+				2207D513279C466100AD3A75 /* mjarray.hpp */,
+				2207D516279C795B00AD3A75 /* normals.hpp */,
+				2207D5002795299300AD3A75 /* option.hpp */,
+				2207D5032798C9A500AD3A75 /* parameters.hpp */,
+				2207D52627A4B49000AD3A75 /* path_dependent.hpp */,
+				2207D4FD27951C6600AD3A75 /* payoff.hpp */,
+				2207D4FA27951AFA00AD3A75 /* random.hpp */,
+				2207D53827A636A800AD3A75 /* solver.hpp */,
+				2207D52C27A4FE6300AD3A75 /* test.hpp */,
+				2207D52F27A5DFA900AD3A75 /* tree_product.hpp */,
+				2207D53227A5E4B200AD3A75 /* tree.hpp */,
+				2207D50A2799F2FB00AD3A75 /* wrapper.hpp */,
+				2294AA4227ACD7550009B4CA /* xlw */,
 			);
 			path = derivs;
 			sourceTree = "<group>";
@@ -3597,6 +3604,8 @@
 				22D9FCA527BFD5D3002AF019 /* date.hpp */,
 				22D9FCA727C191B4002AF019 /* errors.cpp */,
 				22D9FCA827C191B4002AF019 /* errors.hpp */,
+				22D9FCAE27C5E585002AF019 /* period.cpp */,
+				22D9FCAF27C5E585002AF019 /* period.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -6922,6 +6931,15 @@
 			path = inflation;
 			sourceTree = "<group>";
 		};
+		22D9FCAA27C5D544002AF019 /* myQuantLibTest */ = {
+			isa = PBXGroup;
+			children = (
+				22D9FCAB27C5D617002AF019 /* test_date.cpp */,
+				22D9FCAC27C5D617002AF019 /* test.hpp */,
+			);
+			path = myQuantLibTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -7135,6 +7153,7 @@
 				22D9F9D327BB560C002AF019 /* fdmblackscholesmesher.cpp in Sources */,
 				22D9FAD127BB560D002AF019 /* onestepcoterminalswaps.cpp in Sources */,
 				22D9FB4727BB560D002AF019 /* mincopula.cpp in Sources */,
+				22D9FCB027C5E585002AF019 /* period.cpp in Sources */,
 				22D9FA0F27BB560C002AF019 /* isdacdsengine.cpp in Sources */,
 				22D9FA5427BB560C002AF019 /* analyticdigitalamericanengine.cpp in Sources */,
 				22D9F93D27BB560B002AF019 /* haganirregularswaptionengine.cpp in Sources */,
@@ -7752,6 +7771,7 @@
 				22D9FA1F27BB560C002AF019 /* gaussian1dswaptionengine.cpp in Sources */,
 				22D9FA6D27BB560C002AF019 /* mc_discr_geom_av_price_heston.cpp in Sources */,
 				22D9FA4E27BB560C002AF019 /* analyticeuropeanengine.cpp in Sources */,
+				22D9FCAD27C5D617002AF019 /* test_date.cpp in Sources */,
 				22D9F9C827BB560C002AF019 /* fdmhestonhullwhiteop.cpp in Sources */,
 				22D9FC6527BB560F002AF019 /* chfliborswap.cpp in Sources */,
 				22D9FA4C27BB560C002AF019 /* analyticeuropeanvasicekengine.cpp in Sources */,
