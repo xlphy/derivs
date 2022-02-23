@@ -8,9 +8,23 @@
 #ifndef period_hpp
 #define period_hpp
 
-#include "date.hpp"
+#include <iostream>
+
 
 namespace myQuantLib {
+
+enum TimeUnit { Days,
+                Weeks,
+                Months,
+                Years,
+                Hours,
+                Minutes,
+                Seconds,
+                Milliseconds,
+                Microseconds
+};
+std::ostream& operator<<(std::ostream&, const TimeUnit&);
+
 
 enum Frequency { NoFrequency = -1,     //!< null frequency
                  Once = 0,             //!< only once, e.g., a zero-coupon
@@ -53,6 +67,39 @@ private:
     TimeUnit _units = Days;
     
 };
+
+double years(const Period&);
+double months(const Period&);
+double weeks(const Period&);
+double days(const Period&);
+
+template <typename T>
+Period operator*(T n, TimeUnit units);
+
+template <typename T>
+Period operator*(TimeUnit units, T n);
+
+Period operator-(const Period&);
+Period operator*(int n, const Period&);
+
+Period operator*(const Period&, int n);
+Period operator/(const Period&, int n);
+
+Period operator+(const Period&, const Period&);
+Period operator-(const Period&, const Period&);
+
+bool operator<(const Period&, const Period&);
+bool operator==(const Period&, const Period&);
+bool operator!=(const Period&, const Period&);
+bool operator>(const Period&, const Period&);
+bool operator<=(const Period&, const Period&);
+bool operator>=(const Period&, const Period&);
+
+/*! \relates Period */
+std::ostream& operator<<(std::ostream&, const Period&);
+
+//TODO: inline definitions
+
 
 
 

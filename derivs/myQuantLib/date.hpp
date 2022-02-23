@@ -15,18 +15,6 @@
 
 namespace myQuantLib{
 
-enum TimeUnit { Days,
-                Weeks,
-                Months,
-                Years,
-                Hours,
-                Minutes,
-                Seconds,
-                Milliseconds,
-                Microseconds
-};
-std::ostream& operator<<(std::ostream&, const TimeUnit&);
-
 
 enum Weekday {
     Sunday    = 1,
@@ -97,8 +85,8 @@ public:
     // date arithmetic
     Date& operator+=(Date::serial_type days);
     Date& operator-=(Date::serial_type days);
-    Date& operator+=(const Period&); //TODO: add Period
-    Date& operator-=(const Period&); //TODO: add Period
+    Date& operator+=(const Period&);
+    Date& operator-=(const Period&);
     
     Date& operator++();
     Date operator++(int );

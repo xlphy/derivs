@@ -83,10 +83,20 @@ Date& Date::operator+=(Date::serial_type days){
     return *this;
 }
 
+Date& Date::operator+=(const Period& p) {
+    _serial_number = advance(*this, p.length(), p.units()).serial_number();
+    return *this;
+}
+
 Date& Date::operator-=(Date::serial_type days){
     Date::serial_type serial = _serial_number - days;
     check_serial_number(serial);
     _serial_number = serial;
+    return *this;
+}
+
+Date& Date::operator-=(const Period& p) {
+    _serial_number = advance(*this, -p.length(), p.units()).serial_number();
     return *this;
 }
 
@@ -234,30 +244,6 @@ std::ostream& operator<<(std::ostream& out, const Date& d) {
     return out;
 }
 
-std::ostream& operator<<(std::ostream& out, const TimeUnit& u) {
-    switch (u) {
-        case Years:
-            return out << "Years";
-        case Months:
-            return out << "Months";
-        case Weeks:
-            return out << "Weeks";
-        case Days:
-            return out << "Days";
-        case Hours:
-            return out << "Hours";
-        case Minutes:
-            return out << "Minutes";
-        case Seconds:
-            return out << "Seconds";
-        case Milliseconds:
-            return out << "Milliseconds";
-        case Microseconds:
-            return out << "Microseconds";
-        default:
-            myQL_FAIL("unknown TimeUnit");
-    }
-}
 
 std::ostream& operator<<(std::ostream& out, const Weekday& wd) {
     switch (wd) {
