@@ -88,7 +88,7 @@ Period operator/(const Period&, int n);
 Period operator+(const Period&, const Period&);
 Period operator-(const Period&, const Period&);
 
-bool operator<(const Period&, const Period&);
+bool operator<(const Period&, const Period&); // only need to implement this one carefully
 bool operator==(const Period&, const Period&);
 bool operator!=(const Period&, const Period&);
 bool operator>(const Period&, const Period&);
@@ -98,7 +98,43 @@ bool operator>=(const Period&, const Period&);
 /*! \relates Period */
 std::ostream& operator<<(std::ostream&, const Period&);
 
-//TODO: inline definitions
+
+template <typename T>
+inline Period operator*(T n, TimeUnit units) {
+    return {Integer(n), units};
+}
+
+template <typename T>
+inline Period operator*(TimeUnit units, T n) {
+    return {Integer(n), units};
+}
+
+inline Period operator-(const Period& p) { return {-p.length(), p.units()}; }
+
+inline Period operator*(int n, const Period& p) { return {n * p.length(), p.units()}; }
+
+inline Period operator*(const Period& p, int n) { return {n * p.length(), p.units()}; }
+
+// complete comparison, only need to implement <
+inline bool operator==(const Period& p1, const Period& p2) {
+    return !(p1 < p2 || p2 < p1);
+}
+
+inline bool operator!=(const Period& p1, const Period& p2) {
+    return !(p1 == p2);
+}
+
+inline bool operator>(const Period& p1, const Period& p2) {
+    return p2 < p1;
+}
+
+inline bool operator<=(const Period& p1, const Period& p2) {
+    return !(p1 > p2);
+}
+
+inline bool operator>=(const Period& p1, const Period& p2) {
+    return !(p1 < p2);
+}
 
 
 
