@@ -956,6 +956,7 @@
 		22D9FCA927C191B4002AF019 /* errors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCA727C191B4002AF019 /* errors.cpp */; };
 		22D9FCAD27C5D617002AF019 /* test_date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAB27C5D617002AF019 /* test_date.cpp */; };
 		22D9FCB027C5E585002AF019 /* period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAE27C5E585002AF019 /* period.cpp */; };
+		22D9FCB327C742FA002AF019 /* calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCB127C742FA002AF019 /* calendar.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3458,6 +3459,8 @@
 		22D9FCAC27C5D617002AF019 /* test.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test.hpp; sourceTree = "<group>"; };
 		22D9FCAE27C5E585002AF019 /* period.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = period.cpp; sourceTree = "<group>"; };
 		22D9FCAF27C5E585002AF019 /* period.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = period.hpp; sourceTree = "<group>"; };
+		22D9FCB127C742FA002AF019 /* calendar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calendar.cpp; sourceTree = "<group>"; };
+		22D9FCB227C742FA002AF019 /* calendar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3606,6 +3609,8 @@
 				22D9FCA827C191B4002AF019 /* errors.hpp */,
 				22D9FCAE27C5E585002AF019 /* period.cpp */,
 				22D9FCAF27C5E585002AF019 /* period.hpp */,
+				22D9FCB127C742FA002AF019 /* calendar.cpp */,
+				22D9FCB227C742FA002AF019 /* calendar.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7006,6 +7011,7 @@
 				22D9FAA227BB560C002AF019 /* swaptionhelper.cpp in Sources */,
 				22D9FBF627BB560E002AF019 /* swaptionvolmatrix.cpp in Sources */,
 				22D9FA7F27BB560C002AF019 /* coxingersollrossprocess.cpp in Sources */,
+				22D9FCB327C742FA002AF019 /* calendar.cpp in Sources */,
 				22D9F96D27BB560C002AF019 /* convolvedstudentt.cpp in Sources */,
 				22D9FBE427BB560E002AF019 /* makecds.cpp in Sources */,
 				22D9F93A27BB560B002AF019 /* blackvolsurface.cpp in Sources */,
