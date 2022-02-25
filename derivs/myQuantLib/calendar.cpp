@@ -9,6 +9,29 @@
 
 namespace myQuantLib {
 
+std::ostream& operator<<(std::ostream& out,
+                         BusinessDayConvention b) {
+    switch (b) {
+      case Following:
+        return out << "Following";
+      case ModifiedFollowing:
+        return out << "Modified Following";
+      case HalfMonthModifiedFollowing:
+        return out << "Half-Month Modified Following";
+      case Preceding:
+        return out << "Preceding";
+      case ModifiedPreceding:
+        return out << "Modified Preceding";
+      case Unadjusted:
+        return out << "Unadjusted";
+      case Nearest:
+        return out << "Nearest";
+      default:
+        myQL_FAIL("unknown BusinessDayConvention (" << int(b) << ")");
+    }
+}
+
+
 void Calendar::add_holiday(const Date& d) {
     myQL_REQUIRE(_impl, "no calendar implementation provided");
     

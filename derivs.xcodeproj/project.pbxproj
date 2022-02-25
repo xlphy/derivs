@@ -957,6 +957,7 @@
 		22D9FCAD27C5D617002AF019 /* test_date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAB27C5D617002AF019 /* test_date.cpp */; };
 		22D9FCB027C5E585002AF019 /* period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAE27C5E585002AF019 /* period.cpp */; };
 		22D9FCB327C742FA002AF019 /* calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCB127C742FA002AF019 /* calendar.cpp */; };
+		22D9FCB627C8940E002AF019 /* calendar_us.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCB427C8940E002AF019 /* calendar_us.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3461,6 +3462,8 @@
 		22D9FCAF27C5E585002AF019 /* period.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = period.hpp; sourceTree = "<group>"; };
 		22D9FCB127C742FA002AF019 /* calendar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calendar.cpp; sourceTree = "<group>"; };
 		22D9FCB227C742FA002AF019 /* calendar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar.hpp; sourceTree = "<group>"; };
+		22D9FCB427C8940E002AF019 /* calendar_us.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calendar_us.cpp; sourceTree = "<group>"; };
+		22D9FCB527C8940E002AF019 /* calendar_us.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar_us.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3611,6 +3614,8 @@
 				22D9FCAF27C5E585002AF019 /* period.hpp */,
 				22D9FCB127C742FA002AF019 /* calendar.cpp */,
 				22D9FCB227C742FA002AF019 /* calendar.hpp */,
+				22D9FCB427C8940E002AF019 /* calendar_us.cpp */,
+				22D9FCB527C8940E002AF019 /* calendar_us.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7332,6 +7337,7 @@
 				22D9FB0E27BB560D002AF019 /* money.cpp in Sources */,
 				22D9F8EF27BB560B002AF019 /* integralcdoengine.cpp in Sources */,
 				22D9FB8927BB560D002AF019 /* southafrica.cpp in Sources */,
+				22D9FCB627C8940E002AF019 /* calendar_us.cpp in Sources */,
 				22D9F97627BB560C002AF019 /* digitalcmsspreadcoupon.cpp in Sources */,
 				22D9FAD827BB560D002AF019 /* pathwiseproductswap.cpp in Sources */,
 				22D9FBAE27BB560E002AF019 /* nonstandardswaption.cpp in Sources */,

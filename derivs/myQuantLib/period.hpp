@@ -101,12 +101,12 @@ std::ostream& operator<<(std::ostream&, const Period&);
 
 template <typename T>
 inline Period operator*(T n, TimeUnit units) {
-    return {Integer(n), units};
+    return {int(n), units};
 }
 
 template <typename T>
 inline Period operator*(TimeUnit units, T n) {
-    return {Integer(n), units};
+    return {int(n), units};
 }
 
 inline Period operator-(const Period& p) { return {-p.length(), p.units()}; }
