@@ -9,6 +9,7 @@
 #define calendar_hpp
 
 #include "date.hpp"
+#include "errors.hpp"
 #include <string>
 #include <vector>
 #include <set>
@@ -57,6 +58,7 @@ class Period;
 class Calendar {
 protected:
     class Impl {
+        // core function of Calendar is to identify holiday and business day
     public:
         virtual ~Impl() = default;
         virtual std::string name() const = 0;
@@ -122,7 +124,63 @@ bool operator==(const Calendar&, const Calendar&);
 bool operator!=(const Calendar&, const Calendar&);
 std::ostream& operator<<(std::ostream&, const Calendar&);
 
-//TODO: inline definitions
+// inline definitions
+inline bool Calendar::empty() const { return !_impl;}
+inline std::string Calendar::name() const {
+    myQL_REQUIRE(_impl, "no calendar implementation provided");
+    return _impl->name();
+}
+inline const std::set<Date>& Calendar::added_holidays() const {
+    myQL_REQUIRE(_impl, "no calendar implementation provided");
+    return _impl->added_holidays;
+}
+inline const std::set<Date>& Calendar::removed_holidays() const {
+    myQL_REQUIRE(_impl, "no calendar implementation provided");
+    return _impl->removed_holidays;
+}
+
+inline bool Calendar::is_biz_day(const Date& d) const {
+    myQL_REQUIRE(_impl, "no calendar implementation provided");
+    const Date& _d = d;
+    if(!_impl->added_holidays.empty() &&
+       _impl->added_holidays.find(_d) != _impl->added_holidays.end())
+        return false; // find d in holidays
+    if(!_impl->removed_holidays.empty() &&
+       _impl->removed_holidays.find(_d) != _impl->removed_holidays.end())
+        return true; // find d in removed holidays, it was a holiday, but it is not now
+    
+    return _impl->is_biz_day(_d);
+}
+
+inline bool Calendar::is_end_of_month(const Date& d) const {
+    return (d.month() != adjust(d+1).month());
+}
+
+inline Date Calendar::end_of_month(const Date &d) const {
+    return adjust(Date::end_of_month(d), Preceding);
+}
+
+inline bool Calendar::is_holiday(const Date& d) const {
+    return !is_biz_day(d);
+}
+
+inline bool Calendar::is_weekend(Weekday w) const {
+    myQL_REQUIRE(_impl, "no calendar implementation provided");
+    return _impl->is_weekend(w);
+}
+
+inline bool operator==(const Calendar& c1, const Calendar& c2) {
+    return (c1.empty() && c2.empty())
+    || (!c1.empty() && !c2.empty() && c1.name() == c2.name());
+}
+
+inline bool operator!=(const Calendar& c1, const Calendar& c2) {
+    return !(c1 == c2);
+}
+
+inline std::ostream& operator<<(std::ostream& out, const Calendar& c) {
+    return out << c.name();
+}
 
 
 }
