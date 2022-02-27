@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "myQuantLib::Date::month() const:date.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "month_offset(Month(m), leap)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "myQuantLib::Date::Date(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;):date.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "std::stoi(date_str.substr(beg_pos, end_pos-beg_pos))">
+            </PersistentString>
+            <PersistentString
+               value = "int(std::stoi(&quot;2&quot;))">
+            </PersistentString>
+            <PersistentString
+               value = "std::stoi(&quot;2&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
