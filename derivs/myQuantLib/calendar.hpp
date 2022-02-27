@@ -58,7 +58,7 @@ class Period;
 class Calendar {
 protected:
     class Impl {
-        // core function of Calendar is to identify holiday and business day
+        // core function of Calendar impl is to identify holiday and business day
     public:
         virtual ~Impl() = default;
         virtual std::string name() const = 0;
@@ -68,6 +68,7 @@ protected:
     };
     std::shared_ptr<Impl> _impl;
 public:
+    // key interface it provides is to do business days advance / adjustment / counting
     Calendar() = default;
     bool empty() const;
     std::string name() const;

@@ -3464,6 +3464,7 @@
 		22D9FCB227C742FA002AF019 /* calendar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar.hpp; sourceTree = "<group>"; };
 		22D9FCB427C8940E002AF019 /* calendar_us.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calendar_us.cpp; sourceTree = "<group>"; };
 		22D9FCB527C8940E002AF019 /* calendar_us.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar_us.hpp; sourceTree = "<group>"; };
+		22D9FCB827CBDD76002AF019 /* daycounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3616,6 +3617,7 @@
 				22D9FCB227C742FA002AF019 /* calendar.hpp */,
 				22D9FCB427C8940E002AF019 /* calendar_us.cpp */,
 				22D9FCB527C8940E002AF019 /* calendar_us.hpp */,
+				22D9FCB827CBDD76002AF019 /* daycounter.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
