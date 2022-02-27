@@ -958,6 +958,9 @@
 		22D9FCB027C5E585002AF019 /* period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCAE27C5E585002AF019 /* period.cpp */; };
 		22D9FCB327C742FA002AF019 /* calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCB127C742FA002AF019 /* calendar.cpp */; };
 		22D9FCB627C8940E002AF019 /* calendar_us.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCB427C8940E002AF019 /* calendar_us.cpp */; };
+		22D9FCBC27CBE5F1002AF019 /* daycounter_simple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCBA27CBE5F1002AF019 /* daycounter_simple.cpp */; };
+		22D9FCBF27CBE8E6002AF019 /* daycounter_thirty360.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCBD27CBE8E6002AF019 /* daycounter_thirty360.cpp */; };
+		22D9FCC227CBE90A002AF019 /* daycounter_biz252.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3465,6 +3468,12 @@
 		22D9FCB427C8940E002AF019 /* calendar_us.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calendar_us.cpp; sourceTree = "<group>"; };
 		22D9FCB527C8940E002AF019 /* calendar_us.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calendar_us.hpp; sourceTree = "<group>"; };
 		22D9FCB827CBDD76002AF019 /* daycounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter.hpp; sourceTree = "<group>"; };
+		22D9FCBA27CBE5F1002AF019 /* daycounter_simple.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = daycounter_simple.cpp; sourceTree = "<group>"; };
+		22D9FCBB27CBE5F1002AF019 /* daycounter_simple.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_simple.hpp; sourceTree = "<group>"; };
+		22D9FCBD27CBE8E6002AF019 /* daycounter_thirty360.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = daycounter_thirty360.cpp; sourceTree = "<group>"; };
+		22D9FCBE27CBE8E6002AF019 /* daycounter_thirty360.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_thirty360.hpp; sourceTree = "<group>"; };
+		22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = daycounter_biz252.cpp; sourceTree = "<group>"; };
+		22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_biz252.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3618,6 +3627,12 @@
 				22D9FCB427C8940E002AF019 /* calendar_us.cpp */,
 				22D9FCB527C8940E002AF019 /* calendar_us.hpp */,
 				22D9FCB827CBDD76002AF019 /* daycounter.hpp */,
+				22D9FCBA27CBE5F1002AF019 /* daycounter_simple.cpp */,
+				22D9FCBB27CBE5F1002AF019 /* daycounter_simple.hpp */,
+				22D9FCBD27CBE8E6002AF019 /* daycounter_thirty360.cpp */,
+				22D9FCBE27CBE8E6002AF019 /* daycounter_thirty360.hpp */,
+				22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */,
+				22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7494,6 +7509,7 @@
 				22D9FB1527BB560D002AF019 /* quadratic.cpp in Sources */,
 				22D9FC5527BB560F002AF019 /* position.cpp in Sources */,
 				22D9FC6227BB560F002AF019 /* interestrateindex.cpp in Sources */,
+				22D9FCBC27CBE5F1002AF019 /* daycounter_simple.cpp in Sources */,
 				22D9F9EF27BB560C002AF019 /* fdminnervaluecalculator.cpp in Sources */,
 				22D9F9A227BB560C002AF019 /* analytic_discr_geom_av_price_heston.cpp in Sources */,
 				22D9FBFA27BB560E002AF019 /* swaptionvolcube2.cpp in Sources */,
@@ -7577,6 +7593,7 @@
 				22D9FBDE27BB560E002AF019 /* impliedvolatility.cpp in Sources */,
 				22D9FB5A27BB560D002AF019 /* seedgenerator.cpp in Sources */,
 				22D9F99A27BB560C002AF019 /* fdmextoujumpop.cpp in Sources */,
+				22D9FCC227CBE90A002AF019 /* daycounter_biz252.cpp in Sources */,
 				22D9F90D27BB560B002AF019 /* variancegammamodel.cpp in Sources */,
 				22D9F9D127BB560C002AF019 /* fdmmeshercomposite.cpp in Sources */,
 				22D9FC4D27BB560E002AF019 /* cmscoupon.cpp in Sources */,
@@ -7809,6 +7826,7 @@
 				22D9FA8A27BB560C002AF019 /* lmfixedvolmodel.cpp in Sources */,
 				22D9FACB27BB560D002AF019 /* compositeproduct.cpp in Sources */,
 				22D9FC5C27BB560F002AF019 /* euribor.cpp in Sources */,
+				22D9FCBF27CBE8E6002AF019 /* daycounter_thirty360.cpp in Sources */,
 				22D9F96F27BB560C002AF019 /* catrisk.cpp in Sources */,
 				22D9FABB27BB560D002AF019 /* cashrebate.cpp in Sources */,
 				22D9F97827BB560C002AF019 /* strippedcapflooredcoupon.cpp in Sources */,

@@ -8,8 +8,8 @@
 #ifndef daycounter_hpp
 #define daycounter_hpp
 
-#include "date.cpp"
-#include <memory>
+#include "date.hpp"
+#include "errors.hpp"
 
 namespace myQuantLib {
 
@@ -61,8 +61,8 @@ public:
     
     // Returns the period between two dates as a fraction of year.
     double year_fraction(const Date& d1, const Date& d2,
-                         const Date& ref_period_start,
-                         const Date& ref_period_end) const {
+                         const Date& ref_period_start=Date(),
+                         const Date& ref_period_end=Date()) const {
         myQL_REQUIRE(_impl, "no day counter implementation provided!");
         return _impl->year_fraction(d1, d2, ref_period_start, ref_period_end);
     }
