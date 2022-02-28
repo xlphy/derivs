@@ -52,6 +52,49 @@ enum BusinessDayConvention {
 std::ostream& operator<<(std::ostream&, BusinessDayConvention);
 
 
+//! Date-generation rule
+/*! These conventions specify the rule used to generate dates in a
+    Schedule.
+
+    \ingroup datetime
+*/
+struct DateGeneration {
+    enum Rule {
+        Backward,       /*!< Backward from termination date to
+                             effective date. */
+        Forward,        /*!< Forward from effective date to
+                             termination date. */
+        Zero,           /*!< No intermediate dates between effective date
+                             and termination date. */
+        ThirdWednesday,  /*!< All dates but effective date and termination
+                              date are taken to be on the third wednesday
+                              of their month (with forward calculation.) */
+        ThirdWednesdayInclusive, /*!< All dates including effective date and termination
+                                      date are taken to be on the third wednesday
+                                      of their month (with forward calculation.) */
+        Twentieth,      /*!< All dates but the effective date are
+                             taken to be the twentieth of their
+                             month (used for CDS schedules in
+                             emerging markets.)  The termination
+                             date is also modified. */
+        TwentiethIMM,   /*!< All dates but the effective date are
+                             taken to be the twentieth of an IMM
+                             month (used for CDS schedules.)  The
+                             termination date is also modified. */
+        OldCDS,         /*!< Same as TwentiethIMM with unrestricted date
+                             ends and log/short stub coupon period (old
+                             CDS convention). */
+        CDS,             /*!< Credit derivatives standard rule since 'Big
+                           Bang' changes in 2009.  */
+        CDS2015,         /*!< Credit derivatives standard rule since
+                           December 20th, 2015.  */
+    };
+};
+
+/*! \relates DateGeneration */
+std::ostream& operator<<(std::ostream&, DateGeneration::Rule);
+
+
 class Period;
 
 class Calendar {
@@ -181,6 +224,27 @@ inline bool operator!=(const Calendar& c1, const Calendar& c2) {
 inline std::ostream& operator<<(std::ostream& out, const Calendar& c) {
     return out << c.name();
 }
+
+
+//! %Calendar for reproducing theoretical calculations.
+/*! This calendar has no holidays. It ensures that dates at
+    whole-month distances have the same day of month.
+
+    \ingroup calendars
+*/
+class NullCalendar : public Calendar {
+  private:
+    class Impl : public Calendar::Impl {
+      public:
+        std::string name() const override { return "Null"; }
+        bool is_weekend(Weekday) const override { return false; }
+        bool is_biz_day(const Date&) const override { return true; }
+    };
+  public:
+    NullCalendar() {
+        _impl = std::shared_ptr<Calendar::Impl>(new NullCalendar::Impl);
+    }
+};
 
 
 }

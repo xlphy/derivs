@@ -31,6 +31,34 @@ std::ostream& operator<<(std::ostream& out,
     }
 }
 
+std::ostream& operator<<(std::ostream& out, DateGeneration::Rule r) {
+    switch (r) {
+      case DateGeneration::Backward:
+        return out << "Backward";
+      case DateGeneration::Forward:
+        return out << "Forward";
+      case DateGeneration::Zero:
+        return out << "Zero";
+      case DateGeneration::ThirdWednesday:
+        return out << "ThirdWednesday";
+      case DateGeneration::ThirdWednesdayInclusive:
+        return out << "ThirdWednesdayInclusive";
+      case DateGeneration::Twentieth:
+        return out << "Twentieth";
+      case DateGeneration::TwentiethIMM:
+        return out << "TwentiethIMM";
+      case DateGeneration::OldCDS:
+        return out << "OldCDS";
+      case DateGeneration::CDS:
+        return out << "CDS";
+      case DateGeneration::CDS2015:
+        return out << "CDS2015";
+      default:
+        myQL_FAIL("unknown DateGeneration::Rule (" << int(r) << ")");
+    }
+}
+
+
 
 void Calendar::add_holiday(const Date& d) {
     myQL_REQUIRE(_impl, "no calendar implementation provided");

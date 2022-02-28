@@ -961,6 +961,7 @@
 		22D9FCBC27CBE5F1002AF019 /* daycounter_simple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCBA27CBE5F1002AF019 /* daycounter_simple.cpp */; };
 		22D9FCBF27CBE8E6002AF019 /* daycounter_thirty360.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCBD27CBE8E6002AF019 /* daycounter_thirty360.cpp */; };
 		22D9FCC227CBE90A002AF019 /* daycounter_biz252.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */; };
+		22D9FCC527CC7E33002AF019 /* schedule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC327CC7E33002AF019 /* schedule.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3474,6 +3475,8 @@
 		22D9FCBE27CBE8E6002AF019 /* daycounter_thirty360.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_thirty360.hpp; sourceTree = "<group>"; };
 		22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = daycounter_biz252.cpp; sourceTree = "<group>"; };
 		22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_biz252.hpp; sourceTree = "<group>"; };
+		22D9FCC327CC7E33002AF019 /* schedule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = schedule.cpp; sourceTree = "<group>"; };
+		22D9FCC427CC7E33002AF019 /* schedule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = schedule.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3633,6 +3636,8 @@
 				22D9FCBE27CBE8E6002AF019 /* daycounter_thirty360.hpp */,
 				22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */,
 				22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */,
+				22D9FCC327CC7E33002AF019 /* schedule.cpp */,
+				22D9FCC427CC7E33002AF019 /* schedule.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7862,6 +7867,7 @@
 				22D9FC6827BB560F002AF019 /* gbpliborswap.cpp in Sources */,
 				22D9F9C927BB560C002AF019 /* fdmcirop.cpp in Sources */,
 				22D9FA5927BB560C002AF019 /* analyticcevengine.cpp in Sources */,
+				22D9FCC527CC7E33002AF019 /* schedule.cpp in Sources */,
 				22D9FBD127BB560E002AF019 /* makeyoyinflationcapfloor.cpp in Sources */,
 				22D9FC4627BB560E002AF019 /* timebasket.cpp in Sources */,
 				22D9F90027BB560B002AF019 /* discretizedcallablefixedratebond.cpp in Sources */,
