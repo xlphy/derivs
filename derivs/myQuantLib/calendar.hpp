@@ -49,8 +49,7 @@ enum BusinessDayConvention {
 };
 
 /*! \relates BusinessDayConvention */
-std::ostream& operator<<(std::ostream&,
-                         BusinessDayConvention);
+std::ostream& operator<<(std::ostream&, BusinessDayConvention);
 
 
 class Period;

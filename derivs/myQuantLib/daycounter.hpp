@@ -38,7 +38,7 @@ protected:
                                      const Date& ref_period_start,
                                      const Date& ref_period_end) const = 0;
     };
-    
+    // all instances of concrete DayCounter share the sample internal concrete Impl
     std::shared_ptr<Impl> _impl;
     // constructor invoked by a derived class which defines a concrete implementation of Impl
     explicit DayCounter(std::shared_ptr<Impl> impl): _impl(std::move(impl)){}
