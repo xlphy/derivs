@@ -962,6 +962,7 @@
 		22D9FCBF27CBE8E6002AF019 /* daycounter_thirty360.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCBD27CBE8E6002AF019 /* daycounter_thirty360.cpp */; };
 		22D9FCC227CBE90A002AF019 /* daycounter_biz252.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC027CBE90A002AF019 /* daycounter_biz252.cpp */; };
 		22D9FCC527CC7E33002AF019 /* schedule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC327CC7E33002AF019 /* schedule.cpp */; };
+		22D9FCCE27CF378E002AF019 /* cashflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCCC27CF378E002AF019 /* cashflow.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3477,6 +3478,10 @@
 		22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = daycounter_biz252.hpp; sourceTree = "<group>"; };
 		22D9FCC327CC7E33002AF019 /* schedule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = schedule.cpp; sourceTree = "<group>"; };
 		22D9FCC427CC7E33002AF019 /* schedule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = schedule.hpp; sourceTree = "<group>"; };
+		22D9FCC727CF2F8D002AF019 /* visitor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = visitor.hpp; sourceTree = "<group>"; };
+		22D9FCCA27CF310E002AF019 /* event.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = event.hpp; sourceTree = "<group>"; };
+		22D9FCCC27CF378E002AF019 /* cashflow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cashflow.cpp; sourceTree = "<group>"; };
+		22D9FCCD27CF378E002AF019 /* cashflow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cashflow.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3638,6 +3643,10 @@
 				22D9FCC127CBE90A002AF019 /* daycounter_biz252.hpp */,
 				22D9FCC327CC7E33002AF019 /* schedule.cpp */,
 				22D9FCC427CC7E33002AF019 /* schedule.hpp */,
+				22D9FCC727CF2F8D002AF019 /* visitor.hpp */,
+				22D9FCCA27CF310E002AF019 /* event.hpp */,
+				22D9FCCC27CF378E002AF019 /* cashflow.cpp */,
+				22D9FCCD27CF378E002AF019 /* cashflow.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7305,6 +7314,7 @@
 				22D9FB2D27BB560D002AF019 /* steepestdescent.cpp in Sources */,
 				22D9FB2627BB560D002AF019 /* tqreigendecomposition.cpp in Sources */,
 				22D9FC2A27BB560E002AF019 /* fittedbonddiscountcurve.cpp in Sources */,
+				22D9FCCE27CF378E002AF019 /* cashflow.cpp in Sources */,
 				22D9FB3527BB560D002AF019 /* conjugategradient.cpp in Sources */,
 				22D9F8F027BB560B002AF019 /* defaultprobabilitykey.cpp in Sources */,
 				22D9F9E927BB560C002AF019 /* fdmaffinemodelswapinnervalue.cpp in Sources */,
