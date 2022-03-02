@@ -3482,6 +3482,7 @@
 		22D9FCCA27CF310E002AF019 /* event.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = event.hpp; sourceTree = "<group>"; };
 		22D9FCCC27CF378E002AF019 /* cashflow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cashflow.cpp; sourceTree = "<group>"; };
 		22D9FCCD27CF378E002AF019 /* cashflow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cashflow.hpp; sourceTree = "<group>"; };
+		22D9FCD027D025E9002AF019 /* comparison.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = comparison.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3647,6 +3648,7 @@
 				22D9FCCA27CF310E002AF019 /* event.hpp */,
 				22D9FCCC27CF378E002AF019 /* cashflow.cpp */,
 				22D9FCCD27CF378E002AF019 /* cashflow.hpp */,
+				22D9FCD027D025E9002AF019 /* comparison.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
