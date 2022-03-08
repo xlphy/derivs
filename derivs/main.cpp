@@ -9,12 +9,13 @@
 //#include "myQuantLib/date.hpp"
 
 //#include <boost/math/special_functions/erf.hpp>
-#include "myQuantLibTest/test.hpp"
+//#include "myQuantLibTest/test.hpp"
+
 
 
 int main(int argc, const char * argv[]) {
     
-    test_date();
+    //test_date();
     //test_simpleMC();
     //test_exoticEngine();
     //test_tree();
