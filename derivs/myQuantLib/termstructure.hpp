@@ -80,7 +80,7 @@ protected:
     void check_range(const Date& d, bool extrapolate) const;
     void check_range(double time, bool extrapolate) const;
     bool _moving = false;
-    mutable bool _update = true;
+    mutable bool _updated = true;
     Calendar _calendar;
     
 private:

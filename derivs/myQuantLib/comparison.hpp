@@ -12,6 +12,7 @@
 
 namespace myQuantLib {
 
+
 //! compare two objects by date
 /*! There is no generic implementation of this struct.
     Template specializations will have to be defined for
