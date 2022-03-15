@@ -966,6 +966,9 @@
 		22D9FCD427D69C0C002AF019 /* termstructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD227D69C0C002AF019 /* termstructure.cpp */; };
 		22D9FCD827D69D75002AF019 /* extrapolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD627D69D75002AF019 /* extrapolation.cpp */; };
 		22D9FCDB27D7E7E2002AF019 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD927D7E7E2002AF019 /* settings.cpp */; };
+		22D9FCE127DEE459002AF019 /* yieldtermstructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCDF27DEE459002AF019 /* yieldtermstructure.cpp */; };
+		22D9FCE427DEECCA002AF019 /* quote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCE227DEECCA002AF019 /* quote.cpp */; };
+		22D9FCE727DEEE58002AF019 /* interestrate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCE527DEEE58002AF019 /* interestrate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -3493,6 +3496,12 @@
 		22D9FCD927D7E7E2002AF019 /* settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
 		22D9FCDA27D7E7E2002AF019 /* settings.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = settings.hpp; sourceTree = "<group>"; };
 		22D9FCDD27D80994002AF019 /* singleton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = singleton.hpp; sourceTree = "<group>"; };
+		22D9FCDF27DEE459002AF019 /* yieldtermstructure.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = yieldtermstructure.cpp; sourceTree = "<group>"; };
+		22D9FCE027DEE459002AF019 /* yieldtermstructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = yieldtermstructure.hpp; sourceTree = "<group>"; };
+		22D9FCE227DEECCA002AF019 /* quote.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quote.cpp; sourceTree = "<group>"; };
+		22D9FCE327DEECCA002AF019 /* quote.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quote.hpp; sourceTree = "<group>"; };
+		22D9FCE527DEEE58002AF019 /* interestrate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interestrate.cpp; sourceTree = "<group>"; };
+		22D9FCE627DEEE58002AF019 /* interestrate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interestrate.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3665,6 +3674,12 @@
 				22D9FCD927D7E7E2002AF019 /* settings.cpp */,
 				22D9FCDA27D7E7E2002AF019 /* settings.hpp */,
 				22D9FCDD27D80994002AF019 /* singleton.hpp */,
+				22D9FCDF27DEE459002AF019 /* yieldtermstructure.cpp */,
+				22D9FCE027DEE459002AF019 /* yieldtermstructure.hpp */,
+				22D9FCE227DEECCA002AF019 /* quote.cpp */,
+				22D9FCE327DEECCA002AF019 /* quote.hpp */,
+				22D9FCE527DEEE58002AF019 /* interestrate.cpp */,
+				22D9FCE627DEEE58002AF019 /* interestrate.hpp */,
 			);
 			path = myQuantLib;
 			sourceTree = "<group>";
@@ -7136,6 +7151,7 @@
 				22D9FB5D27BB560D002AF019 /* haltonrsg.cpp in Sources */,
 				22D9FBA327BB560E002AF019 /* calendar.cpp in Sources */,
 				22D9FA8B27BB560C002AF019 /* lmlinexpcorrmodel.cpp in Sources */,
+				22D9FCE127DEE459002AF019 /* yieldtermstructure.cpp in Sources */,
 				22D9FB2227BB560D002AF019 /* qrdecomposition.cpp in Sources */,
 				22D9FB3027BB560D002AF019 /* constraint.cpp in Sources */,
 				22D9FAF027BB560D002AF019 /* abcdvol.cpp in Sources */,
@@ -7365,6 +7381,7 @@
 				22D9F90627BB560B002AF019 /* tenoroptionletvts.cpp in Sources */,
 				22D9FB4B27BB560D002AF019 /* filonintegral.cpp in Sources */,
 				22D9F9DF27BB560C002AF019 /* fdmhestonhullwhitesolver.cpp in Sources */,
+				22D9FCE427DEECCA002AF019 /* quote.cpp in Sources */,
 				22D9FA4627BB560C002AF019 /* integralengine.cpp in Sources */,
 				22D9F9E327BB560C002AF019 /* fdm3dimsolver.cpp in Sources */,
 				22D9F95927BB560B002AF019 /* kirkspreadoptionengine.cpp in Sources */,
@@ -7660,6 +7677,7 @@
 				22D9F9A527BB560C002AF019 /* america.cpp in Sources */,
 				22D9FBBD27BB560E002AF019 /* fixedratebond.cpp in Sources */,
 				22D9FA6E27BB560C002AF019 /* mc_discr_geom_av_price.cpp in Sources */,
+				22D9FCE727DEEE58002AF019 /* interestrate.cpp in Sources */,
 				22D9F93927BB560B002AF019 /* zabr.cpp in Sources */,
 				22D9FB6327BB560D002AF019 /* bspline.cpp in Sources */,
 				22D9FAEC27BB560D002AF019 /* capletcoterminalmaxhomogeneity.cpp in Sources */,
