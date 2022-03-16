@@ -54,7 +54,6 @@ public:
         to the reference date.  In the latter case, the time is calculated
         as a fraction of year from the reference date.
     */
-    
     double discount(const Date& d, bool extrapolate = false) const {
         return discount(time_from_ref(d), extrapolate);
     }

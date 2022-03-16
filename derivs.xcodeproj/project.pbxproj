@@ -1023,6 +1023,8 @@
 		2207D53E27A6EB3200AD3A75 /* factory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = factory.hpp; sourceTree = "<group>"; };
 		2207D54027A6EB8D00AD3A75 /* registration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = registration.cpp; sourceTree = "<group>"; };
 		2207D54227A73BC100AD3A75 /* factory_constructible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = factory_constructible.h; sourceTree = "<group>"; };
+		2226ED9427E23BB0001C2538 /* zeroyieldstructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = zeroyieldstructure.hpp; sourceTree = "<group>"; };
+		2226ED9727E2740F001C2538 /* forwardratestructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = forwardratestructure.hpp; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -3515,6 +3517,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2226ED9227E23A64001C2538 /* termstructures */ = {
+			isa = PBXGroup;
+			children = (
+				2226ED9427E23BB0001C2538 /* zeroyieldstructure.hpp */,
+				2226ED9727E2740F001C2538 /* forwardratestructure.hpp */,
+			);
+			path = termstructures;
+			sourceTree = "<group>";
+		};
 		2268C55A278DC7EE00370682 = {
 			isa = PBXGroup;
 			children = (
@@ -3637,6 +3648,7 @@
 		22D9D41527BB0B33002AF019 /* myQuantLib */ = {
 			isa = PBXGroup;
 			children = (
+				2226ED9227E23A64001C2538 /* termstructures */,
 				22D9FCD527D69D05002AF019 /* interpolations */,
 				22D9D41727BB4B20002AF019 /* instrument.hpp */,
 				22D9FC9B27BCBA1A002AF019 /* swap.cpp */,
