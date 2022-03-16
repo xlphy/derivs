@@ -26,6 +26,12 @@
 		2207D53C27A63BF300AD3A75 /* func_obj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53A27A63BF300AD3A75 /* func_obj.cpp */; };
 		2207D53F27A6EB3200AD3A75 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D53D27A6EB3200AD3A75 /* factory.cpp */; };
 		2207D54127A6EB8D00AD3A75 /* registration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2207D54027A6EB8D00AD3A75 /* registration.cpp */; };
+		2226ED9B27E27BEC001C2538 /* interpolatedcurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226ED9927E27BEC001C2538 /* interpolatedcurve.cpp */; };
+		2226EDA027E28114001C2538 /* interpolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226ED9F27E28114001C2538 /* interpolation.cpp */; };
+		2226EDA327E28D62001C2538 /* zerocurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226EDA127E28D61001C2538 /* zerocurve.cpp */; };
+		2226EDA627E28D71001C2538 /* forwardcurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226EDA427E28D71001C2538 /* forwardcurve.cpp */; };
+		2226EDA927E28D87001C2538 /* discountcurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226EDA727E28D87001C2538 /* discountcurve.cpp */; };
+		2226EDAC27E2928A001C2538 /* linearinterpolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2226EDAA27E2928A001C2538 /* linearinterpolation.cpp */; };
 		2268C567278DC7EE00370682 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268C566278DC7EE00370682 /* main.cpp */; };
 		2294A9E827ACC8F30009B4CA /* arglist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294A9E627ACC8F30009B4CA /* arglist.cpp */; };
 		2294AA8627ACD7550009B4CA /* DoubleOrNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2294AA6E27ACD7550009B4CA /* DoubleOrNothing.cpp */; };
@@ -964,7 +970,6 @@
 		22D9FCC527CC7E33002AF019 /* schedule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCC327CC7E33002AF019 /* schedule.cpp */; };
 		22D9FCCE27CF378E002AF019 /* cashflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCCC27CF378E002AF019 /* cashflow.cpp */; };
 		22D9FCD427D69C0C002AF019 /* termstructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD227D69C0C002AF019 /* termstructure.cpp */; };
-		22D9FCD827D69D75002AF019 /* extrapolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD627D69D75002AF019 /* extrapolation.cpp */; };
 		22D9FCDB27D7E7E2002AF019 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCD927D7E7E2002AF019 /* settings.cpp */; };
 		22D9FCE127DEE459002AF019 /* yieldtermstructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCDF27DEE459002AF019 /* yieldtermstructure.cpp */; };
 		22D9FCE427DEECCA002AF019 /* quote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D9FCE227DEECCA002AF019 /* quote.cpp */; };
@@ -1025,6 +1030,18 @@
 		2207D54227A73BC100AD3A75 /* factory_constructible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = factory_constructible.h; sourceTree = "<group>"; };
 		2226ED9427E23BB0001C2538 /* zeroyieldstructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = zeroyieldstructure.hpp; sourceTree = "<group>"; };
 		2226ED9727E2740F001C2538 /* forwardratestructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = forwardratestructure.hpp; sourceTree = "<group>"; };
+		2226ED9927E27BEC001C2538 /* interpolatedcurve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interpolatedcurve.cpp; sourceTree = "<group>"; };
+		2226ED9A27E27BEC001C2538 /* interpolatedcurve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interpolatedcurve.hpp; sourceTree = "<group>"; };
+		2226ED9D27E27D5A001C2538 /* interpolation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interpolation.hpp; sourceTree = "<group>"; };
+		2226ED9F27E28114001C2538 /* interpolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interpolation.cpp; sourceTree = "<group>"; };
+		2226EDA127E28D61001C2538 /* zerocurve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = zerocurve.cpp; sourceTree = "<group>"; };
+		2226EDA227E28D61001C2538 /* zerocurve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = zerocurve.hpp; sourceTree = "<group>"; };
+		2226EDA427E28D71001C2538 /* forwardcurve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = forwardcurve.cpp; sourceTree = "<group>"; };
+		2226EDA527E28D71001C2538 /* forwardcurve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = forwardcurve.hpp; sourceTree = "<group>"; };
+		2226EDA727E28D87001C2538 /* discountcurve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = discountcurve.cpp; sourceTree = "<group>"; };
+		2226EDA827E28D87001C2538 /* discountcurve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = discountcurve.hpp; sourceTree = "<group>"; };
+		2226EDAA27E2928A001C2538 /* linearinterpolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = linearinterpolation.cpp; sourceTree = "<group>"; };
+		2226EDAB27E2928A001C2538 /* linearinterpolation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = linearinterpolation.hpp; sourceTree = "<group>"; };
 		2268C563278DC7EE00370682 /* derivs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = derivs; sourceTree = BUILT_PRODUCTS_DIR; };
 		2268C566278DC7EE00370682 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2268C56F278E256E00370682 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -3493,7 +3510,6 @@
 		22D9FCD027D025E9002AF019 /* comparison.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = comparison.hpp; sourceTree = "<group>"; };
 		22D9FCD227D69C0C002AF019 /* termstructure.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = termstructure.cpp; sourceTree = "<group>"; };
 		22D9FCD327D69C0C002AF019 /* termstructure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = termstructure.hpp; sourceTree = "<group>"; };
-		22D9FCD627D69D75002AF019 /* extrapolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extrapolation.cpp; sourceTree = "<group>"; };
 		22D9FCD727D69D75002AF019 /* extrapolation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = extrapolation.hpp; sourceTree = "<group>"; };
 		22D9FCD927D7E7E2002AF019 /* settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
 		22D9FCDA27D7E7E2002AF019 /* settings.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = settings.hpp; sourceTree = "<group>"; };
@@ -3522,6 +3538,14 @@
 			children = (
 				2226ED9427E23BB0001C2538 /* zeroyieldstructure.hpp */,
 				2226ED9727E2740F001C2538 /* forwardratestructure.hpp */,
+				2226ED9927E27BEC001C2538 /* interpolatedcurve.cpp */,
+				2226ED9A27E27BEC001C2538 /* interpolatedcurve.hpp */,
+				2226EDA127E28D61001C2538 /* zerocurve.cpp */,
+				2226EDA227E28D61001C2538 /* zerocurve.hpp */,
+				2226EDA427E28D71001C2538 /* forwardcurve.cpp */,
+				2226EDA527E28D71001C2538 /* forwardcurve.hpp */,
+				2226EDA727E28D87001C2538 /* discountcurve.cpp */,
+				2226EDA827E28D87001C2538 /* discountcurve.hpp */,
 			);
 			path = termstructures;
 			sourceTree = "<group>";
@@ -7029,8 +7053,11 @@
 		22D9FCD527D69D05002AF019 /* interpolations */ = {
 			isa = PBXGroup;
 			children = (
-				22D9FCD627D69D75002AF019 /* extrapolation.cpp */,
 				22D9FCD727D69D75002AF019 /* extrapolation.hpp */,
+				2226ED9D27E27D5A001C2538 /* interpolation.hpp */,
+				2226ED9F27E28114001C2538 /* interpolation.cpp */,
+				2226EDAA27E2928A001C2538 /* linearinterpolation.cpp */,
+				2226EDAB27E2928A001C2538 /* linearinterpolation.hpp */,
 			);
 			path = interpolations;
 			sourceTree = "<group>";
@@ -7476,6 +7503,7 @@
 				22D9FCA627BFD5D3002AF019 /* date.cpp in Sources */,
 				22D9FBFD27BB560E002AF019 /* gaussian1dswaptionvolatility.cpp in Sources */,
 				22D9FA8D27BB560C002AF019 /* lmvolmodel.cpp in Sources */,
+				2226EDA927E28D87001C2538 /* discountcurve.cpp in Sources */,
 				22D9FB0527BB560D002AF019 /* accountingengine.cpp in Sources */,
 				22D9FC2527BB560E002AF019 /* bondhelpers.cpp in Sources */,
 				22D9F92827BB560B002AF019 /* unitofmeasure.cpp in Sources */,
@@ -7573,6 +7601,7 @@
 				22D9F95B27BB560B002AF019 /* hestonslvmcmodel.cpp in Sources */,
 				22D9FBA427BB560E002AF019 /* dategenerationrule.cpp in Sources */,
 				22D9F96927BB560B002AF019 /* piecewiseintegral.cpp in Sources */,
+				2226ED9B27E27BEC001C2538 /* interpolatedcurve.cpp in Sources */,
 				22D9F99B27BB560C002AF019 /* fdmhestonfwdop.cpp in Sources */,
 				22D9FBB827BB560E002AF019 /* btp.cpp in Sources */,
 				22D9FA2227BB560C002AF019 /* discretizedconvertible.cpp in Sources */,
@@ -7712,6 +7741,7 @@
 				22D9FBF827BB560E002AF019 /* swaptionvolcube.cpp in Sources */,
 				22D9F8F527BB560B002AF019 /* analyticdoublebarrierbinaryengine.cpp in Sources */,
 				22D9F9B227BB560C002AF019 /* modifiedcraigsneydscheme.cpp in Sources */,
+				2226EDAC27E2928A001C2538 /* linearinterpolation.cpp in Sources */,
 				22D9FC3C27BB560E002AF019 /* digitaliborcoupon.cpp in Sources */,
 				22D9F9A027BB560C002AF019 /* vanillavppoption.cpp in Sources */,
 				22D9FC4527BB560E002AF019 /* conundrumpricer.cpp in Sources */,
@@ -7746,13 +7776,13 @@
 				22D9F9ED27BB560C002AF019 /* squarerootprocessrndcalculator.cpp in Sources */,
 				22D9FC3327BB560E002AF019 /* duration.cpp in Sources */,
 				22D9FBC327BB560E002AF019 /* forwardvanillaoption.cpp in Sources */,
+				2226EDA627E28D71001C2538 /* forwardcurve.cpp in Sources */,
 				22D9FC6C27BB560F002AF019 /* swapindex.cpp in Sources */,
 				22D9FA2527BB560C002AF019 /* bondfunctions.cpp in Sources */,
 				22D9FA9927BB560C002AF019 /* vasicek.cpp in Sources */,
 				22D9FBD027BB560E002AF019 /* stock.cpp in Sources */,
 				22D9F90927BB560B002AF019 /* analyticvariancegammaengine.cpp in Sources */,
 				22D9FB8827BB560D002AF019 /* unitedkingdom.cpp in Sources */,
-				22D9FCD827D69D75002AF019 /* extrapolation.cpp in Sources */,
 				22D9FBB727BB560E002AF019 /* floatingratebond.cpp in Sources */,
 				22D9F91E27BB560B002AF019 /* energyswap.cpp in Sources */,
 				22D9FC3127BB560E002AF019 /* cashflows.cpp in Sources */,
@@ -7810,6 +7840,7 @@
 				22D9FC0027BB560E002AF019 /* atmadjustedsmilesection.cpp in Sources */,
 				22D9FBC727BB560E002AF019 /* averagetype.cpp in Sources */,
 				22D9F9FC27BB560C002AF019 /* fdmsimpleswingcondition.cpp in Sources */,
+				2226EDA027E28114001C2538 /* interpolation.cpp in Sources */,
 				22D9FB0A27BB560D002AF019 /* pathwiseaccountingengine.cpp in Sources */,
 				22D9FABA27BB560D002AF019 /* multistepnothing.cpp in Sources */,
 				22D9FA6227BB560C002AF019 /* mchullwhiteengine.cpp in Sources */,
@@ -8018,6 +8049,7 @@
 				22D9F9DE27BB560C002AF019 /* fdmbatessolver.cpp in Sources */,
 				22D9FA4127BB560C002AF019 /* baroneadesiwhaleyengine.cpp in Sources */,
 				22D9FB2827BB560D002AF019 /* abcdmathfunction.cpp in Sources */,
+				2226EDA327E28D62001C2538 /* zerocurve.cpp in Sources */,
 				22D9FBBE27BB560E002AF019 /* oneassetoption.cpp in Sources */,
 				22D9F90B27BB560B002AF019 /* fftengine.cpp in Sources */,
 				22D9FB9127BB560E002AF019 /* weekendsonly.cpp in Sources */,
