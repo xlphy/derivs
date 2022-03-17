@@ -8,6 +8,6 @@
 #ifndef forwardcurve_hpp
 #define forwardcurve_hpp
 
-#include <stdio.h>
+
 
 #endif /* forwardcurve_hpp */

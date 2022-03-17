@@ -112,6 +112,39 @@ public:
         return implied_rate(compound, resultDC, comp, freq, t);
     }
     
+    //! equivalent interest rate for a compounding period t.
+    /*! The resulting InterestRate shares the same implicit
+        day-counting rule of the original InterestRate instance.
+
+        \warning Time must be measured using the InterestRate's
+                 own day counter.
+    */
+    InterestRate equivalent_rate(Compounding comp,
+                                 Frequency freq,
+                                 double time) const {
+        return implied_rate(compound_factor(time), _dc, comp, freq, time);
+    }
+    
+    //! equivalent rate for a compounding period between two dates
+    /*! The resulting rate is calculated taking the required
+        day-counting rule into account.
+    */
+    InterestRate equivalent_rate(const DayCounter& resultDC,
+                                 Compounding comp,
+                                 Frequency freq,
+                                 Date d1,
+                                 Date d2,
+                                 const Date& ref_start = Date(),
+                                 const Date& ref_end = Date()) const {
+        myQL_REQUIRE(d2>=d1,
+                     "d1 (" << d1 << ") "
+                     "later than d2 (" << d2 << ")");
+        double t1 = _dc.year_fraction(d1, d2, ref_start, ref_end);
+        double t2 = resultDC.year_fraction(d1, d2, ref_start, ref_end);
+        return implied_rate(compound_factor(t1), resultDC, comp, freq, t2);
+    }
+    
+    
 private:
     double _r;
     DayCounter _dc;

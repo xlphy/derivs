@@ -8,6 +8,6 @@
 #ifndef discountcurve_hpp
 #define discountcurve_hpp
 
-#include <stdio.h>
+
 
 #endif /* discountcurve_hpp */
