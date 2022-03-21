@@ -119,7 +119,7 @@ namespace QuantLib {
     template <class T>
     inline Date InterpolatedZeroCurve<T>::maxDate() const {
         if (this->maxDate_ != Date())
-           return this->maxDate_;
+           return this->ssmaxDate_;
         return dates_.back();
     }
 
